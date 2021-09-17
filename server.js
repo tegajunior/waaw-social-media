@@ -23,5 +23,8 @@ app.use(passport.session());
 require("./startup/basicAppInit")(app);
 app.use(globalVariables);
 
-const PORT = 6000;
+app.get("/", (req, res) => {
+    res.render("index")
+})
+const PORT = 4000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
