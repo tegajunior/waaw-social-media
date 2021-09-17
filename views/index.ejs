@@ -6,43 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/49c0517b17.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-
-    <div class="header_signup">
-        <div class="header_signup_text">
-            <h2>Waaw Social Media</h2>
-        </div>
-        <form action="">
-            <input type="search" name="" id="" placeholder="Seach for a user...">
-            <button type="submit" class="btn-search">Go</button>
-        </form>
-    </div>
-
-    <div class="container_signup">
-        <div class="signup_form">
-            <h1>Create a new account</h1>
-            <div class="line">
-                <div class="line-1"></div>
-                <h3>Or</h3>
-                <div class="line-2"></div>
+    <div class="container-all">
+        <div class="header_signup">
+            <div class="header_signup_text">
+                <h2>waaw social media</h2>
             </div>
-            <form action="/auth/signup" method="post">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Type your username" required>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="" placeholder="Example: name@gmail.com" required>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="6+ characters" required>
-                <div class="form-button">
-                    <button type="submit" class="btn btn-primary">Sign up</button>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
+            <form action="">
+                <input type="search" name="" id="" placeholder="Seach for a user...">
+                <button type="submit" class="btn-search">Go</button>
             </form>
         </div>
-        <div class="signup_image"></div>
+
+        <div class="container_signup">
+            <div class="signup_form">
+                <h1>Create a new account</h1>
+                <div class="signup-icons"><span><i class="fab fa-facebook"></i></span><span><i class="fab fa-google"></i></div></span>
+
+                    <div class="line">
+                        <div class="line-1"></div>
+                        <h3>Or</h3>
+                        <div class="line-2"></div>
+                    </div>
+                    <form action="/auth/signup" method="post">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Type your username" required>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="" placeholder="Example: name@gmail.com" required>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="6+ characters" required>
+                        <div class="form-button">
+                            <button type="submit" class="">Sign up</button>
+                            <button type="submit" class="">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup_image"></div>
+            </div>
+        </div>
     </div>
 </body>
 
