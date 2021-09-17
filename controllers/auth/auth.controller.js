@@ -60,4 +60,15 @@ module.exports = {
       session: true,
     });
   },
+  verifyUserRegisteredEmail: async (req, res) => {
+    const {token} = req.params;
+    let user = await User.findOne({secretToken: token});
+    if (!user) {
+      req.flash("error-message", "Your account does not exist");
+      return res.redirect("/auth/register");
+    }
+    user.verified = true;
+    req.flash("success-message", "Your account has been verified, you can now login");
+    return res.redirect("/auth/login");
+  }
 };

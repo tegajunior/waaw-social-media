@@ -5,18 +5,18 @@ const verifyUserEmail = async (req, username, email, secretToken) => {
   <br />
   <br />
 
-  Thank you for signing up at WAAWTube.
+  Thank you for signing up at WAAW SOCIAL.
   <br /><br />
-  Please click the link below or copy and paste to any browser to verufy your account.
+  Please click the link below or copy and paste to any browser to verify your account.
   <br />
-  <a href="http://${req.headers.host}/auth/verify-token/${secretToken}">
-    http://${req.headers.host}/auth/verify-token/${secretToken}
+  <a href="http://${req.headers.host}/auth/verify-account/${secretToken}">
+    http://${req.headers.host}/auth/verify-account/${secretToken}
   </a>
 
   <br /><br />
   Kind regards,
   <br />
-  <strong>Team WAAWTube</strong>
+  <strong>Team WAAW SOCIAL</strong>
 `;
   await sendEmail(
     "chidiebereuzomahumble@gmail.com",

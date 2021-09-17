@@ -34,5 +34,5 @@ app.use("/user", userRoutes);
 app.use("/comment", commentRoutes);
 app.use("/post", postRoutes);
 
-const PORT = 6000;
+const PORT = 7000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
