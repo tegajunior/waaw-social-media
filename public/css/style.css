@@ -16,6 +16,8 @@
             justify-content: space-between;
             background: #FF735C;
             height: 44px;
+            position: fixed;
+            z-index: 1;
         }
         
         .header_signup_text h2 {
@@ -76,7 +78,7 @@
             font-size: 18px;
         }
         
-        .header_signup form button:hover {
+        .btn-search:hover {
             background: #FF735C;
             color: #FFFFFF;
             border: 1px solid #F2F2F2;
@@ -167,18 +169,31 @@
             margin: 10px;
         }
         
+        form button:hover {
+            background: rgb(238, 84, 84);
+            color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+        }
+        
         form button:nth-of-type(2) {
             background: #FFFFFF;
             border: 1px solid #FF735C;
             color: #FF735C;
         }
         
+        form button:nth-of-type(2):hover {
+            background: #FF735C;
+            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+        }
+        
         .signup_image {
             background: url(/images/signupimage.jpg);
             background-size: contain;
             background-repeat: no-repeat;
-            width: 100%;
+            width: 60%;
             height: 70%;
+            z-index: 0;
         }
         
         @media screen and (max-width:768px) {
@@ -278,8 +293,31 @@
             /*  */
         }
         
-        @media screen and (max-width:360px) {
+        @media screen and (max-width:280px) {
+            body {
+                display: flex;
+                justify-content: center;
+                justify-items: center;
+                align-items: center;
+                width: 60%;
+            }
+            .header_signup form input {
+                width: 80px;
+            }
             .header_signup {
-                width: 114%;
+                background: none;
+                width: 50%;
+            }
+            .btn-search {
+                width: 20%;
+            }
+            .container_signup {
+                width: 50%;
+            }
+            .signup_form h1 {
+                font-size: 10px;
+            }
+            .line {
+                width: 50%;
             }
         }
