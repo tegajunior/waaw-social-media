@@ -1,43 +1,43 @@
 {
-  "name": "waawtube",
-  "version": "1.0.0",
-  "description": "video streaming app",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tegajunior/chidiebere_waaw-tube.git"
-  },
-  "keywords": [
-    "nodejs",
-    "media",
-    "streaming",
-    "app"
-  ],
-  "author": "chidiebere",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "config": "^3.3.6",
-    "connect-flash": "^0.1.1",
-    "connect-mongo": "^4.5.0",
-    "cookie-parser": "^1.4.5",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "express-messages": "^1.0.1",
-    "express-session": "^1.17.2",
-    "moment": "^2.29.1",
-    "mongoose": "^6.0.3",
-    "morgan": "^1.10.0",
-    "nodemailer": "^6.6.3",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "randomstring": "^1.2.1"
-  },
-  "bugs": {
-    "url": "https://github.com/tegajunior/chidiebere_waaw-tube/issues"
-  },
-  "homepage": "https://github.com/tegajunior/chidiebere_waaw-tube#readme"
+    "name": "waaw-social-media",
+    "version": "1.0.0",
+    "description": "Social Media Application",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tegajunior/chidiebere_waaw-tube.git"
+    },
+    "keywords": [
+        "nodejs",
+        "media",
+        "streaming",
+        "app"
+    ],
+    "author": "chidiebere",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "config": "^3.3.6",
+        "connect-flash": "^0.1.1",
+        "connect-mongo": "^4.5.0",
+        "cookie-parser": "^1.4.5",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-messages": "^1.0.1",
+        "express-session": "^1.17.2",
+        "moment": "^2.29.1",
+        "mongoose": "^6.0.3",
+        "morgan": "^1.10.0",
+        "nodemailer": "^6.6.3",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "randomstring": "^1.2.1"
+    },
+    "bugs": {
+        "url": "https://github.com/tegajunior/chidiebere_waaw-tube/issues"
+    },
+    "homepage": "https://github.com/tegajunior/chidiebere_waaw-tube#readme"
 }
