@@ -198,17 +198,17 @@
         }
         
         @media screen and (max-width:768px) {
-            .signup_image {
+            /* .signup_image {
                 display: none;
-            }
+            } */
             .container_signup {
                 flex-direction: column;
                 width: 30%;
                 justify-content: flex-start;
             }
-            .header_signup_text {
+            /* .header_signup_text {
                 display: none;
-            }
+            } */
             .header_signup {
                 justify-content: center;
             }
@@ -231,7 +231,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;
+                flex-direction: row;
             }
             form button {
                 margin: 10px;
@@ -299,12 +299,12 @@
         }
         
         @media screen and (max-width:500px) {
-            /* body {
+            .form-button {
                 display: flex;
                 justify-content: center;
-                justify-items: center;
                 align-items: center;
-            } */
+                flex-direction: column;
+            }
             .header_signup form input {
                 width: 100%;
             }
