@@ -21,6 +21,8 @@ app.set("views", path.join(__dirname, "views"));
 
 require('./startup/db')();
 require('./startup/sessionSetup')(app);
+require('./startup/passportSetup')()
+
 
 app.use(passport.initialize());
 app.use(passport.session());
