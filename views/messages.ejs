@@ -1,0 +1,37 @@
+<% if (success_message && success_message.length > 0){%>
+    <div class=" alert-success" id="alert">
+
+        <%- success_message %>
+
+            <span id="close">&times;</span>
+
+    </div>
+
+    <%}%>
+
+
+        <% if (error_message && error_message.length > 0){%>
+            <div class="alert-danger" id="alert">
+                <%- error_message %>
+                    <span id="close">&times;</span>
+
+            </div>
+
+            <% } %>
+
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+                <script>
+                    const hideMsg = document.querySelector('#alert');
+                    const clickHide = document.getElementById('close')
+                    clickHide.addEventListener('click', () => {
+                        hideMsg.style.display = 'none';
+                    })
+
+                    $(document).ready(function() {
+                        setTimeout(function() {
+                            $('#alert').fadeOut().slideUp()
+                        }, 15000)
+                    });
+                </script>
