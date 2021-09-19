@@ -1,13 +1,13 @@
 const User = require("../../models/User");
 module.exports = {
     profile: async(req, res) => {
-        // if (!req.user) {
-        //     req.flash(
-        //         "error-message",
-        //         "Unauthorized! please search for a user using their username"
-        //     );
-        //     return res.redirect("back");
-        // }
+        if (!req.user) {
+            req.flash(
+                "error-message",
+                "Unauthorized! please search for a user using their username"
+            );
+            return res.redirect("back");
+        }
         const id = req.user.id;
         const userPosts = await User.findById(id).populate('posts');
         const { posts } = userPosts;
