@@ -9,7 +9,8 @@ const {
     passwordReset,
     verifyUserRegisteredEmail,
     verifyToken,
-    verifyMe
+    verifyMe,
+    google,
 } = require("../../controllers/auth/auth.controller");
 
 router.route("/login").get(login).post(postLogin);
@@ -22,8 +23,8 @@ router.get("/password-reset", passwordReset);
 
 router.get("/verify-account/:token", verifyUserRegisteredEmail);
 
-router.route("/verify-account").get(verifyMe).post(verifyToken)
-
+router.route("/verify-account").get(verifyMe).post(verifyToken);
+router.get("/google", google);
 // router.post("/verify-account", verifyToken)
 
 

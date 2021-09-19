@@ -17,8 +17,8 @@
             <div class="header_signup_text">
                 <h2>waaw social media</h2>
             </div>
-            <form action="">
-                <input type="search" name="" id="" placeholder="Search for a user...">
+            <form action="/user/search" method="post">
+                <input type="search" name="value" id="" placeholder="Search for a username or email">
                 <button type="submit" class="btn-search">Go</button>
             </form>
         </div>
@@ -27,7 +27,9 @@
             <div class="signup_form">
                 <%- include('../messages') -%>
                     <h1>Create a new account</h1>
-                    <div class="signup-icons"><span><i class="fab fa-google"></i>Sign in with Google</span></div>
+                    <div class="signup-icons">
+                        <a href="/auth/google"><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+                    </div>
 
                     <div class="line">
                         <div class="line-1"></div>

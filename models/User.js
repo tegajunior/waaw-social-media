@@ -25,7 +25,9 @@ const userSchema = new Schema(
     googleId: {
       type: String,
     },
-    
+    name: {
+      type: String,
+    },
     verified: {
       type: Boolean,
       default: false,

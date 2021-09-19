@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const postSchema = new Schema(
   {
-    title: {
-      type: String,
-    },
     body: {
       type: String,
     },

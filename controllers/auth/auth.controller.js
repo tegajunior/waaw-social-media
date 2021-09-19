@@ -110,4 +110,5 @@ module.exports = {
   verifyMe: async (req, res) => {
     res.render("auth/verify");
   },
+  google: passport.authenticate('google', {scope: ['profile', 'email']}),
 };

@@ -21,7 +21,8 @@ app.set("views", path.join(__dirname, "views"));
 
 require('./startup/db')();
 require('./startup/sessionSetup')(app);
-require('./startup/passportSetup')()
+require('./startup/passportSetup')();
+require('./startup/googleStrategy')();
 
 
 app.use(passport.initialize());
@@ -29,6 +30,14 @@ app.use(passport.session());
 
 require("./startup/basicAppInit")(app);
 app.use(globalVariables);
+
+app.get(
+  "/auth/google/waawsocial",
+  passport.authenticate("google", { failureRedirect: "/auth/register" }),
+  (req, res) => {
+    res.redirect("/user/profile");
+  }
+);
 
 app.use("/", defaultRoutes);
 app.use("/auth", authRoutes);
