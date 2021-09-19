@@ -2,6 +2,7 @@ const { globalVariables } = require("./config_1/configuration");
 const express = require("express");
 const path = require("path");
 const passport = require("passport");
+require('dotenv').config();
 
 const defaultRoutes = require("./routes/default/default.routes");
 const authRoutes = require("./routes/auth/auth.routes");
@@ -11,7 +12,7 @@ const postRoutes = require("./routes/post/post.routes");
 
 
 const app = express();
-
+app.locals.moment = require('moment');
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,11 +33,11 @@ require("./startup/basicAppInit")(app);
 app.use(globalVariables);
 
 app.get(
-  "/auth/google/waawsocial",
-  passport.authenticate("google", { failureRedirect: "/auth/register" }),
-  (req, res) => {
-    res.redirect("/user/profile");
-  }
+    "/auth/google/waawsocial",
+    passport.authenticate("google", { failureRedirect: "/auth/register" }),
+    (req, res) => {
+        res.redirect("/user/profile");
+    }
 );
 
 app.use("/", defaultRoutes);

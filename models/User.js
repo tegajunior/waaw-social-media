@@ -1,40 +1,35 @@
 const findOrCreate = require("mongoose-findorcreate")
 const mongoose = require('mongoose');
-const {Schema} =  mongoose;
+const { Schema } = mongoose;
 
-const userSchema = new Schema(
-  {
+const userSchema = new Schema({
     username: {
-      type: String,
+        type: String,
     },
     email: {
-      type: String,
+        type: String,
     },
     password: {
-      type: String,
+        type: String,
     },
-    posts: [
-      {
+    posts: [{
         type: mongoose.Types.ObjectId,
         ref: "post",
-      },
-    ],
+    }],
     secretToken: {
-      type: String,
+        type: String,
     },
     googleId: {
-      type: String,
+        type: String,
     },
     name: {
-      type: String,
+        type: String,
     },
     verified: {
-      type: Boolean,
-      default: false,
+        type: Boolean,
+        default: false,
     },
-  },
-  { timestamps: true }
-);
+}, { timestamps: true });
 userSchema.plugin(findOrCreate);
 const User = mongoose.model("user", userSchema);
 
