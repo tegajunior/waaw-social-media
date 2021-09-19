@@ -22,6 +22,7 @@ module.exports = {
             req.flash("error-message", "User not found, please try again");
             return res.redirect("back");
         }
-        return res.render("user/user", { user })
+        const posts = user.posts
+        return res.render("user/user", { posts, user })
     },
 };

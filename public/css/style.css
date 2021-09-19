@@ -40,8 +40,8 @@ input {
     border: 1px solid #3e5c48;
 }
 
-.signup-icons {
-    margin: 10px 10px;
+.signup-icons a {
+    /* margin: 10px 10px; */
     font-size: 20px;
     text-align: center;
     border-radius: 5px;
@@ -52,7 +52,7 @@ input {
     background: #FF735C;
 }
 
-.signup-icons:hover {
+.signup-icons a:hover {
     background: #FFFFFF;
     color: #FF735C;
     border: 1px solid #FF735C;
@@ -383,8 +383,9 @@ form button:nth-of-type(2):hover {
 .container-verify-account h1 {
     color: #FF735C;
     padding: 0 40px;
-    line-height: 45px;
-    font-size: 40px;
+    line-height: 30px;
+    font-size: 30px;
+    margin: 20px 0;
     text-align: center;
 }
 
@@ -621,6 +622,11 @@ textarea:focus {
 .navbar {
     background: #FF735C !important;
     color: #FFFFFF;
+    padding-left: 4px;
+}
+
+.navbar-nav {
+    margin-left: auto !important;
 }
 
 .navbar a {
@@ -647,4 +653,10 @@ textarea:focus {
 
 .likes-comments a:hover {
     color: #fc5b42;
+}
+
+@media screen and (max-width:1000px) {
+    .profile-post {
+        width: 60%;
+    }
 }
