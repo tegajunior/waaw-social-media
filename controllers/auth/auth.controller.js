@@ -52,7 +52,10 @@ module.exports = {
         );
         return res.redirect("/auth/verify-account");
     },
-    passwordReset: async(req, res) => {},
+    passwordReset: async(req, res) => {
+        res.render('auth/resetpassword')
+    },
+    
     logout: async(req, res) => {
         req.logout();
         req.flash("success-message", "We will be glad to have you back.")

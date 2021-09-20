@@ -677,3 +677,96 @@ textarea:focus {
     padding: 10px 10px;
     border-radius: 5px;
 }
+
+/***** Reset password styles ******/ 
+
+
+.reset_form {
+width: 100%;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+
+}
+
+.reset_form form {
+    padding: 60px 70px;
+    border: 1px solid black;
+    flex-direction: column;
+    justify-content:center;
+    margin: auto;
+   
+}
+
+.reset_form h1 {
+ font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 64px;
+color: #FF735C;
+text-align: center;
+/* margin-top: 100px;  */
+ } 
+
+.reset_form .inputBox input{
+    /* text-align: center;
+    font: size 1.5em;
+    font-weight: 600;
+    margin-bottom: 1em; */
+    /* color: #FF735C; */
+    position: relative;
+    width:100%;
+    height: 40px;
+    border:1px solid #555;
+    /* padding:0px; */
+    color:#111;
+    outline: none;
+}
+.resetBotton {
+/* background: #FF735C;
+width: 180px;
+height: 40px;
+border-radius: 8px;
+border: none;
+color: #FFFFFF;
+margin: auto;
+outline: none; */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+}
+
+button[type="submit"]{
+    padding: 0.5em 2em;
+    border-radius:5px 5px 5px 5px ;
+    background-color: #FF735C;
+    color: #ffffff;
+    border: none;
+}
+
+.reset_form input {
+width: 370px;
+height: 50px;
+border: 1px solid #C4C4C4;
+border-radius: 5px;
+margin-bottom: 20px;
+/* margin-top: 20px; */
+}
+
+form label {
+font-size: 15px;
+margin-top: 15px;
+
+}
+
+.form placeholder {
+color: #978F8F;
+font-size: 20px;
+padding-left: 16px;
+}
