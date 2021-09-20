@@ -46,5 +46,9 @@ app.use("/user", userRoutes);
 app.use("/comment", commentRoutes);
 app.use("/post", postRoutes);
 
-const PORT = 7000;
+app.get("/error", (req, res) => {
+    res.render("auth/error");
+});
+
+const PORT = 5000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
