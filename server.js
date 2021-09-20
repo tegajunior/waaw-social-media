@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth/auth.routes");
 const userRoutes = require("./routes/user/user.routes");
 const commentRoutes = require("./routes/comment/comment.routes");
 const postRoutes = require("./routes/post/post.routes");
+const likeRoutes = require("./routes/like/like.route")
 
 
 const app = express();
@@ -45,6 +46,12 @@ app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
 app.use("/comment", commentRoutes);
 app.use("/post", postRoutes);
+app.use("/like", likeRoutes);
+
+app.use((req, res, next) => {
+    res.render("error");
+    next();
+})
 
 const PORT = 7000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

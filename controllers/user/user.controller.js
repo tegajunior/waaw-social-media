@@ -22,7 +22,10 @@ module.exports = {
             req.flash("error-message", "User not found, please try again");
             return res.redirect("back");
         }
-        const posts = user.posts
-        return res.render("user/user", { posts, user })
-    },
+
+        const id = req.user.id;
+        const userPosts = await User.findById(id).populate('posts');
+        const { posts } = userPosts;
+        return res.render("user/user", { posts });
+    }
 };
