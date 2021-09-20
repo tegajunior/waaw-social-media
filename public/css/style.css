@@ -677,3 +677,140 @@ textarea:focus {
     padding: 10px 10px;
     border-radius: 5px;
 }
+
+/* STYLING FOR ERROR PAGE */
+.error h1{
+    text-align: center;
+}
+/* STYLING FOR ERROR PAGE END*/
+
+/* STYLING FOR LOGIN PAGE */
+
+
+.login-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+ 
+ .login-content{
+    /* max-width: 900px; */
+    padding: 60px 70px;
+    border: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+
+ }
+
+ .signup-icon{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ .login-content h1{
+     text-align: center;
+     font-size: 1.5em;
+     font-weight: 600;
+     margin-bottom: 1em;
+     color: #FF735C;
+ }
+ 
+ .login-content p{
+     text-align: center;
+     margin-bottom: 20px;
+ }
+ 
+ .login-content .inputBox{
+     position: relative;
+     margin-bottom: 20px;
+ }
+ 
+ .login-content .inputBox label{
+     color: #111;
+     font-weight: bold;
+ }
+ 
+ .login-content .inputBox input{
+     width: 100%;
+     border: 1px solid #555;
+     padding: 10px;
+     color: #111;
+     outline: none;
+     font-size: 16px;
+     font-weight: 400;
+     border-radius: 5px 5px 5px 5px;
+ }
+ 
+ .login-content button{
+     font-size: 1em;
+     color: #fff;
+     width: 100%;
+     background: #cc1010;
+     display: inline-block;
+     letter-spacing: 2px;
+     transition: 0.5s;
+     font-weight: 500;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     padding: 10px;
+ }
+ 
+ .login-content .button:hover{
+     color: #fff;
+     background: #130606;
+ }
+ 
+ .signinButton{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ input[type="submit"] {
+     padding: 0.5em 2em;
+     border-radius: 5px 5px 5px 5px;
+ }
+ 
+ .signinButton input[type="submit"] {
+     background: #FF735C;
+     color: #FFFFFF;
+     border: none;
+ }
+ 
+ .forgot{
+     width: 100%;
+     min-height: 10vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column; 
+  }
+  
+  .forgot .forgot-content{
+     max-width: 900px;
+     padding: 60px 70px;
+  }
+ 
+  .forgot h5{
+     margin-top: 2.5em;
+  }
+ 
+  .forgot h5 a{
+     text-decoration: none;
+  }
+ 
+  .forgot input[type="submit"] {
+     color: #FF735C;
+     background-color: #FFFFFF;
+     margin-top: 0.5em;
+     border: 1px solid #FF735C;
+ 
+  }
+ /* STYLING FOR LOGIN PAGE END */

@@ -53,5 +53,9 @@ app.use((req, res, next) => {
     next();
 })
 
-const PORT = 7000;
+app.get("/error", (req, res) => {
+    res.render("auth/error");
+});
+
+const PORT = 5000;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
