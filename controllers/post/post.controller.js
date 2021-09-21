@@ -1,7 +1,13 @@
 const Post = require("../../models/Post");
 const User = require("../../models/User");
+const arraySort = require('array-sort');
 module.exports = {
     postPost: async(req, res) => {
+
+        if (!req.user) {
+            req.flash('error-message', 'You must be logged in to create a post.')
+            return res.redirect("/auth/login")
+        }
         const { body } = req.body;
 
         let post = new Post({ body });
@@ -18,6 +24,8 @@ module.exports = {
         res.redirect("back");
     },
     getPosts: async(req, res) => {
-        let all = await Post.find().populate('comments');
+        let posts = await Post.find().populate('comments likedBy');
+        posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
+        res.render("defaults/post", { posts })
     }
 };
