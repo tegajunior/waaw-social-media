@@ -49,7 +49,7 @@ app.use("/post", postRoutes);
 app.use("/like", likeRoutes);
 
 app.use((req, res, next) => {
-    res.render("error");
+    res.send("Page not found!");
     next();
 })
 

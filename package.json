@@ -19,6 +19,7 @@
     "author": "chidiebere",
     "license": "ISC",
     "dependencies": {
+        "array-sort": "^1.0.0",
         "bcryptjs": "^2.4.3",
         "config": "^3.3.6",
         "connect-flash": "^0.1.1",
@@ -37,7 +38,9 @@
         "passport": "^0.4.1",
         "passport-google-oauth20": "^2.0.0",
         "passport-local": "^1.0.0",
-        "randomstring": "^1.2.1"
+        "randomstring": "^1.2.1",
+        "sort-desc": "^0.2.0",
+        "sort-objects-array": "^1.7.1"
     },
     "bugs": {
         "url": "https://github.com/tegajunior/chidiebere_waaw-tube/issues"

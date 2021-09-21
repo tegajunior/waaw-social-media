@@ -16,6 +16,10 @@ const userSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref: "post",
     }],
+    comments: [{
+        type: mongoose.Types.ObjectId,
+        ref: "comment",
+    }],
     secretToken: {
         type: String,
     },

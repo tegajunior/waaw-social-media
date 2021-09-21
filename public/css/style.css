@@ -103,15 +103,26 @@ input {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin-left: 120px;
 }
 
 .signup_form {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     height: 100%;
     align-items: center;
     justify-content: center;
+}
+
+.signup_form a {
+    text-decoration: none;
+    color: #FF735C;
+}
+
+.signup_form a:hover {
+    text-decoration: underline;
+    color: #FF735C;
 }
 
 .line {
@@ -133,7 +144,7 @@ input {
 .signup_form form {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 80%;
 }
 
 .signup_form h1 {
@@ -202,8 +213,8 @@ form button:nth-of-type(2):hover {
     background: url(/images/signupimage.jpg);
     background-size: contain;
     background-repeat: no-repeat;
-    width: 60%;
-    height: 70%;
+    width: 160%;
+    height: 100%;
     z-index: 0;
 }
 
@@ -219,6 +230,7 @@ form button:nth-of-type(2):hover {
         flex-direction: column;
         width: 30%;
         justify-content: flex-start;
+        margin-left: auto;
     }
     /* .header_signup_text {
         display: none;
