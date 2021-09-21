@@ -14,8 +14,10 @@ module.exports = {
         const id = req.user.id;
         const userPosts = await User.findById(id).populate('posts comments');
         let { posts } = userPosts;
+        let [{ comments }] = posts;
+        // comments = arraySort(comments, ['index'], { reverse: true });
         posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
-        return res.render("user/user", { posts });
+        return res.render("user/user", { posts, comments });
     },
     search: async(req, res) => {
         const value = req.body.value;

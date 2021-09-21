@@ -92,19 +92,14 @@
                                     </div>
                                     <div>
 
-                                        <%-post.comments %>
+
+
+
+
                                     </div>
                                 </div>
+
                                 <div class="showmodal" id="<=post.body%>">
-                                    <script>
-                                        let name = '<%=post._id%>'
-                                        let body = "<=post.body%>"
-                                        var modal = document.getElementById(body);
-                                        var click = document.getElementById(name);
-                                        click.addEventListener('click', function() {
-                                            modal.classList.toggle('showmodal')
-                                        })
-                                    </script>
                                     <div class="">
                                         <form action="/comment/add-comment/<%-user.id%>/<%-post._id%>" method="post">
                                             <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
@@ -112,11 +107,17 @@
                                             <button class="btn btn-warning ml-auto">comment</button>
                                         </form>
                                     </div>
-                                </div>
 
+                                </div>
+                                <%for (comment of post.comments) {%>
+                                    <p class="comment">
+                                        <%-comment%>
+                                    </p>
+                                    <%}%>
                         </div>
                         <%}%>
                     </div>
+
             </div>
     </div>
     <%} else { %>

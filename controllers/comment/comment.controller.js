@@ -18,7 +18,7 @@ module.exports = {
             return res.redirect("back");
         }
         const postComment = await Post.findById(postId);
-        await postComment.comments.push(newComment.body);
+        await postComment.comments.unshift(newComment.body);
         await postComment.save();
         const userComment = await User.findById(userId);
         await userComment.comments.push(newComment._id);

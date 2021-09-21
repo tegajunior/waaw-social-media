@@ -12,7 +12,7 @@ const postSchema = new Schema({
         type: mongoose.Types.ObjectId,
         ref: "user"
     }],
-    comments: [{}],
+    comments: [],
 }, { timestamps: true });
 
 const Post = mongoose.model('post', postSchema);
