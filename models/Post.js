@@ -1,29 +1,19 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const postSchema = new Schema(
-  {
+const postSchema = new Schema({
     body: {
-      type: String,
+        type: String,
     },
     likes: {
-      type: Number,
-      default: 0,
+        type: Number,
+        default: 0,
     },
-    likedBy: [
-      {
+    likedBy: [{
         type: mongoose.Types.ObjectId,
-        ref: "user",
-      }
-    ],
-    comments: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "comment",
-      }
-    ],
-  },
-  { timestamps: true }
-);
+        ref: "user"
+    }],
+    comments: [{}],
+}, { timestamps: true });
 
 const Post = mongoose.model('post', postSchema);
 
