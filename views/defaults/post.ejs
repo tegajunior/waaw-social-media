@@ -74,44 +74,45 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <p>
-                            <%- moment(post.createdAt).fromNow() %>
-                        </p>
-                        <%- post.body%>
+                        <%- post.user%>
+                            <p>
+                                <%- moment(post.createdAt).fromNow() %>
+                            </p>
+                            <%- post.body%>
 
-                            <div class="card-like-comment">
-                                <div class="likes-comments mx-3">
-                                    <span><%-post.likedBy.length%>  likes</span>
-                                    <a href="/like/add-like/<%-post.id%>"> <span class="material-icons"> thumb_up </span></a>
-                                </div>
-                                <div class="likes-comments">
-                                    <span><%-post.comments.length %> comments</span>
-                                    <a href="#" id="<%=post._id%>"><span class="material-icons mx-3"> comment</span></a>
-                                </div>
-                                <div>
-
-
-
+                                <div class="card-like-comment">
+                                    <div class="likes-comments mx-3">
+                                        <span><%-post.likedBy.length%>  likes</span>
+                                        <a href="/like/add-like/<%-post.id%>"> <span class="material-icons"> thumb_up </span></a>
+                                    </div>
+                                    <div class="likes-comments">
+                                        <span><%-post.comments.length %> comments</span>
+                                        <a href="#" id="<%=post._id%>"><span class="material-icons mx-3"> comment</span></a>
+                                    </div>
+                                    <div>
 
 
-                                </div>
-                            </div>
 
-                            <div class="showmodal" id="<=post.body%>">
-                                <div class="">
-                                    <form action="/comment/add-comment/<%-post._id%>" method="post">
-                                        <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
-                                        <textarea name="comment" class="form-control mb-3" id="" cols="100" rows="3"></textarea>
-                                        <button class="btn btn-warning ml-auto">comment</button>
-                                    </form>
+
+
+                                    </div>
                                 </div>
 
-                            </div>
-                            <%for (comment of post.comments) {%>
-                                <p class="comment">
-                                    <%-comment%>
-                                </p>
-                                <%}%>
+                                <div class="showmodal" id="<=post.body%>">
+                                    <div class="">
+                                        <form action="/comment/add-comment/<%-post._id%>" method="post">
+                                            <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
+                                            <textarea name="comment" class="form-control mb-3" id="" cols="100" rows="3"></textarea>
+                                            <button class="btn btn-warning ml-auto">comment</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <%for (comment of post.comments) {%>
+                                    <p class="comment">
+                                        <%-comment%>
+                                    </p>
+                                    <%}%>
                     </div>
                     <%}%>
                 </div>

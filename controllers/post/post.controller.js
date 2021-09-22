@@ -10,7 +10,7 @@ module.exports = {
         }
         const { body } = req.body;
 
-        let post = new Post({ body });
+        let post = new Post({ body, user: req.user.username || req.user.name });
         await post.save();
         if (!post) {
             req.flash("error-message", "Could not save post");
