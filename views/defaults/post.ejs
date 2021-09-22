@@ -6,146 +6,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>waaw social</title>
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    
+      <!-- Material Icons -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="/css/style.css" />
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <h4 class="">waaw social</h4>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <% if (isAuthenticated) {%>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Hi <%= user.username ? user.username : user.name %>!
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link  user" href="/auth/logout" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Logout
-                      </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">WAAW App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            
+            <a class="nav-link" href="#"><div class="username"><%= user.username ? user.username : user.name%></div></a>
+            <a class="nav-link" href="/auth/logout">Logout</a>
+            
+          </div>
+        </div>
+      </nav>
 
-                    </li>
-                    <%} else { %>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Register
-                  </a>
+    <!-- End of NavBar -->
 
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="/auth/login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Login
+   <div class="main-container">
+        <!-- Create a Post Area -->
+      <form action="/posts/add-post" method="POST">
+        <input type="text" placeholder="Tell us what's on your mind?...">
+        <button class="post-button" type="submit"><span class="material-icons">send</span></button>
+    </form>
+
+    <!-- Create a Post Area END-->
+
+    <!-- Display Post -->
+    <% for(let post of posts){ %>
+    <div class="container container-post">
+       
+        <div class="media">
+            <div class="username"> EE</div>
+            <div class="media-body">
+              <h5 class="mt-0 ml-2"> <%- post['user']%></h5>
+              <small class="mt-0 ml-2"><%- moment(post.createdAt).fromNow() %></small>
+              <p class="ml-2"><%-post.body%></p>
+              <div class="card-like-comment">
+                <div class="likes-comments-1 likes-comments">
+                  <span><%-post.likedBy.length%> likes</span>
+        <a href="/like/add-like/<%-post.id%>"><span class="material-icons"> thumb_up </span></a>
+                </div>
+                <div class="likes-comments-2 likes-comments">
+                  <span><%-post.comments.length %> comments</span>
+        <a href="#" id="<%=post._id%>"><span class="material-icons">comment</span></a>
+                </div>
+              </div>
+              <div class="showmodal" id="<=post.body%>">
+                <div class="">
+                  <form action="/comment/add-comment/<%-post._id%>" method="post">
+                    <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
+                    <textarea
+                      name="comment"
+                      class="form-control mb-3"
+                      id=""
+                      cols="100"
+                      rows="3"
+                    ></textarea>
+                    <button class="btn btn-warning ml-auto">comment</button>
+                  </form>
+                </div>
+              </div>
+              <div class="media mt-3">
+                <a class="mr-3" href="#">
+                    <div class="username">EE</div>
                 </a>
-
-                        </li>
-                        <% } %>
-
-            </ul>
-
-        </div>
-    </nav>
-    <!-- End of Navbar -->
-
-    <div class="aligned">
-
-        <div class="profile-post">
-            <div class="postarea" data-bs-toggle="modal" data-bs-target="#post">
-                What's on your mind?...
-            </div>
-        </div>
-        <div style="width: 40%; margin: 0 0 0 100px;justify-self: center;">
-            <%- include('../messages') -%>
-        </div>
-
-        <div class="post-container">
-
-
-            <% for(let post of posts){ %>
-
-
-
-                <div class="card">
-
-                    <div class="card-body">
-                        <%- post.user%>
-                            <p>
-                                <%- moment(post.createdAt).fromNow() %>
-                            </p>
-                            <%- post.body%>
-
-                                <div class="card-like-comment">
-                                    <div class="likes-comments mx-3">
-                                        <span><%-post.likedBy.length%>  likes</span>
-                                        <a href="/like/add-like/<%-post.id%>"> <span class="material-icons"> thumb_up </span></a>
-                                    </div>
-                                    <div class="likes-comments">
-                                        <span><%-post.comments.length %> comments</span>
-                                        <a href="#" id="<%=post._id%>"><span class="material-icons mx-3"> comment</span></a>
-                                    </div>
-                                    <div>
-
-
-
-
-
-                                    </div>
-                                </div>
-
-                                <div class="showmodal" id="<=post.body%>">
-                                    <div class="">
-                                        <form action="/comment/add-comment/<%-post._id%>" method="post">
-                                            <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
-                                            <textarea name="comment" class="form-control mb-3" id="" cols="100" rows="3"></textarea>
-                                            <button class="btn btn-warning ml-auto">comment</button>
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <%for (comment of post.comments) {%>
-                                    <p class="comment">
-                                        <%-comment%>
-                                    </p>
-                                    <%}%>
-                    </div>
+                <div class="media-body">
+                  <h5 class="mt-0"><%- post.user%></h5>
+                  <%for (comment of post.comments) {%>
+                    <p class="comment"><%-comment%></p>
                     <%}%>
                 </div>
-
-        </div>
-    </div>
-
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="post" tabindex="-1" aria-labelledby="post" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="post">Create a post...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="/post/add-post" method="post">
-                    <div class="modal-body">
-                        <textarea name="body" id="" cols="30" rows="3" placeholder="What's on your mind?" required></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Create Post</button>
-                    </div>
-                </form>
+                
+              </div>
             </div>
-        </div>
+           
+          </div>
+          
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
-
-
+    <!-- Display Post END-->
+    <%}%>
+   </div>
+   
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
-
 </html>

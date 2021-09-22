@@ -506,7 +506,7 @@ form button:nth-of-type(2):hover {
         width: 70%;
     }
 }
-
+/* Verify Token Page Styles END */
 
 /* Flash messages styles */
 
@@ -541,7 +541,7 @@ form button:nth-of-type(2):hover {
     font-size: 25px;
     cursor: pointer;
 }
-
+/* Flash messages styles END*/
 
 /* User profile styles */
 
@@ -575,7 +575,7 @@ form button:nth-of-type(2):hover {
     padding: 10px;
 }
 
-.profile-post {
+/* .profile-post {
     margin-top: 150px;
     width: 40%;
     background: #FFFFFF;
@@ -584,21 +584,21 @@ form button:nth-of-type(2):hover {
     height: 100px;
     padding: 10px;
     /* z-index: 1; */
-    display: block;
+    /* display: block;
     margin-bottom: 100px;
-}
+} */
 
-.postarea {
+/* .postarea {
     background: #FF735C;
     border-radius: 50px;
     width: 100%;
     height: 60px;
     color: #FFFFFF;
     padding: 18px 20px;
-    /* margin: 100px 0; */
-}
+    
+} */
 
-textarea {
+/* textarea {
     resize: none;
     border: none;
     padding: 5px;
@@ -616,7 +616,7 @@ textarea:focus {
 }
 
 .card {
-    border: none;
+    border: 1px solid orange;
 }
 
 .card-body {
@@ -629,7 +629,7 @@ textarea:focus {
     justify-content: end;
     align-items: center;
     align-content: center;
-}
+} 
 
 .navbar {
     background: #FF735C !important;
@@ -651,8 +651,8 @@ textarea:focus {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-}
-
+} */
+/* 
 .likes-comments {
     display: flex;
     flex-direction: column;
@@ -665,7 +665,7 @@ textarea:focus {
 
 .likes-comments a:hover {
     color: #fc5b42;
-}
+} */
 
 @media screen and (max-width:1000px) {
     .profile-post {
@@ -689,7 +689,7 @@ textarea:focus {
     padding: 10px 10px;
     border-radius: 5px;
 }
-
+/* User profile styles END*/
 
 /* STYLING FOR ERROR PAGE */
 .error h1{
@@ -827,3 +827,139 @@ textarea:focus {
  
   }
  /* STYLING FOR LOGIN PAGE END */
+
+ /* All Posts */
+
+ .navbar{
+    background: #FF735C !important;
+    padding: 0 5px;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.navbar a{
+    color: #FFFFFF !important;
+}
+
+
+.media h5{
+    color:#FF735C;
+}
+
+.container-post{
+    box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-bottom: 36px;
+    /* background: #F7F6F2; */
+    width: 60%;
+    padding-top: 10px;
+    
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 100px;
+}
+
+.main-container form{
+    margin-bottom: 100px;
+    background: #FFFFFF;
+    box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.6);
+    padding: 16px 0;
+    width: 60%;
+    height: 100px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container form input{
+    width: 90%;
+    height: 80%;
+    border-radius: 50px;
+    border: none;
+    background-color: #FF735C;
+    padding:0 60px 0 20px;
+}
+
+::placeholder{
+    color: #FFFFFF;
+}
+
+.main-container form input:focus{
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    color:#FFFFFF;
+}
+
+.username{
+    border-radius:100%;
+    display: flex;
+    align-items: center;
+    background: #FF735C;
+    font-size: 24px;
+    height: 50px;
+    width: 50px;
+    color: #FFFFFF;
+    justify-content: center;
+
+}
+
+.post-button{
+    background: none;
+    position: absolute;
+    right: 23%;
+    border-radius: 100%;
+    top: 26%;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    color: #FFFFFF;
+    padding: 0 8px;
+
+}
+.post-button span{
+    color: #FFFFFF;
+    font-size: 44px;
+}
+
+.card-like-comment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border: 1px solid red;
+    /* align-content: end; */
+}
+
+.likes-comments-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: start;
+    width: 100%;
+   
+}
+.likes-comments-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: end;
+    width: 100%;
+   
+}
+
+.likes-comments a {
+    color: #FF735C;
+}
+
+.likes-comments a:hover {
+    color: #fc5b42;
+}
