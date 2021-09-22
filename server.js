@@ -12,6 +12,7 @@ const postRoutes = require("./routes/post/post.routes");
 const likeRoutes = require("./routes/like/like.route")
 
 
+
 const app = express();
 app.locals.moment = require('moment');
 app.use(express.static(path.join(__dirname, "public")));
@@ -32,6 +33,10 @@ app.use(passport.session());
 
 require("./startup/basicAppInit")(app);
 app.use(globalVariables);
+
+app.get('/auth/testing', (req, res) => {
+    res.render('auth/forgotpassword');
+})
 
 app.get(
     "/auth/google/waawsocial",
