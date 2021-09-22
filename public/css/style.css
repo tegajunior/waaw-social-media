@@ -863,29 +863,15 @@ input[type="submit"] {
 }
 
 .reset_form .inputBox input {
-    /* text-align: center;
-        font: size 1.5em;
-        font-weight: 600;
-        margin-bottom: 1em; */
-    /* color: #FF735C; */
     position: relative;
     width: 100%;
     height: 40px;
     border: 1px solid #555;
-    /* padding:0px; */
     color: #111;
     outline: none;
 }
 
 .resetBotton {
-    /* background: #FF735C;
-    width: 180px;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    color: #FFFFFF;
-    margin: auto;
-    outline: none; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -918,4 +904,16 @@ form label {
     color: #978F8F;
     font-size: 20px;
     padding-left: 16px;
+}
+/* .reset_form .inputBox label {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #555;
+    color: #111;
+    outline: none;
+} */
+.emailInput{
+    margin-bottom: 25px;
+    margin-top: 15px;
 }
