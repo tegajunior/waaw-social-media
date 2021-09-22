@@ -101,7 +101,7 @@
 
                                 <div class="showmodal" id="<=post.body%>">
                                     <div class="">
-                                        <form action="/comment/add-comment/<%-user.id%>/<%-post._id%>" method="post">
+                                        <form action="/comment/add-comment/<%-post._id%>" method="post">
                                             <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
                                             <textarea name="comment" class="form-control mb-3" id="" cols="100" rows="3"></textarea>
                                             <button class="btn btn-warning ml-auto">comment</button>
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="likes-comments">
                                     <span>10 comments</span>
-                                    <a href="/post/add-comment"><span class="material-icons mx-3"> comment</span></a>
+                                    <a href="/comment/add-comment"><span class="material-icons mx-3"> comment</span></a>
                                 </div>
 
                             </div>
