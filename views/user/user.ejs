@@ -1,180 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>waaw social</title>
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <h4 class="">waaw social</h4>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <% if (isAuthenticated) {%>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  user" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Hi <%= user.username ? user.username : user.name %>!
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link  user" href="/auth/logout" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Logout
-                      </a>
-
-                    </li>
-                    <%} else { %>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Register
-                  </a>
-
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown" href="/auth/login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Login
-                </a>
-
-                        </li>
-                        <% } %>
-
-            </ul>
-
-        </div>
+      <h4 class="">waaw social</h4>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <% if (isAuthenticated) {%>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link user"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Hi <%= user.username ? user.username : user.name %>!
+            </a>
+          </li>
+          <li>
+            <a
+              class="nav-link user"
+              href="/auth/logout"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Logout
+            </a>
+          </li>
+          <%} else { %>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown"
+              href="/"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Register
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown"
+              href="/auth/login"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Login
+            </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
     </nav>
     <!-- End of Navbar -->
 
     <div class="aligned">
+      <% if (isAuthenticated) {%>
+      <div class="profile-post">
+        <div class="postarea" data-bs-toggle="modal" data-bs-target="#post">
+          What's on your mind?...
+        </div>
+      </div>
+      <div style="width: 40%; margin: 0 0 0 100px; justify-self: center">
+        <%- include('../messages') -%>
+      </div>
 
+      <div class="post-container">
+        <% for(let post of posts){ %>
 
-        <% if (isAuthenticated) {%>
-            <div class="profile-post">
-                <div class="postarea" data-bs-toggle="modal" data-bs-target="#post">
-                    What's on your mind?...
-                </div>
+        <div class="card">
+          <div class="card-body">
+            <p><%- moment(post.createdAt).fromNow() %></p>
+            <%- post.body%>
+
+            <div class="card-like-comment">
+              <div class="likes-comments mx-3">
+                <span><%-post.likedBy.length%> likes</span>
+                <a href="/like/add-like/<%-post.id%>">
+                  <span class="material-icons"> thumb_up </span></a
+                >
+              </div>
+              <div class="likes-comments">
+                <span><%-post.comments.length %> comments</span>
+                <a href="#" id="<%=post._id%>"
+                  ><span class="material-icons mx-3"> comment</span></a
+                >
+              </div>
+              <div></div>
             </div>
-            <div style="width: 40%; margin: 0 0 0 100px;justify-self: center;">
-                <%- include('../messages') -%>
+
+            <div class="showmodal" id="<=post.body%>">
+              <div class="">
+                <form action="/comment/add-comment/<%-post._id%>" method="post">
+                  <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
+                  <textarea
+                    name="comment"
+                    class="form-control mb-3"
+                    id=""
+                    cols="100"
+                    rows="3"
+                  ></textarea>
+                  <button class="btn btn-warning ml-auto">comment</button>
+                </form>
+              </div>
             </div>
-
-            <div class="post-container">
-
-
-                <% for(let post of posts){ %>
-
-
-
-                    <div class="card">
-
-                        <div class="card-body">
-                            <p>
-                                <%- moment(post.createdAt).fromNow() %>
-                            </p>
-                            <%- post.body%>
-
-                                <div class="card-like-comment">
-                                    <div class="likes-comments mx-3">
-                                        <span><%-post.likedBy.length%>  likes</span>
-                                        <a href="/like/add-like/<%-post.id%>"> <span class="material-icons"> thumb_up </span></a>
-                                    </div>
-                                    <div class="likes-comments">
-                                        <span><%-post.comments.length %> comments</span>
-                                        <a href="#" id="<%=post._id%>"><span class="material-icons mx-3"> comment</span></a>
-                                    </div>
-                                    <div>
-
-
-
-
-
-                                    </div>
-                                </div>
-
-                                <div class="showmodal" id="<=post.body%>">
-                                    <div class="">
-                                        <form action="/comment/add-comment/<%-post._id%>" method="post">
-                                            <!-- <input type="text" name="comment" class="form-control w-100 mb-2" id=""> -->
-                                            <textarea name="comment" class="form-control mb-3" id="" cols="100" rows="3"></textarea>
-                                            <button class="btn btn-warning ml-auto">comment</button>
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <%for (comment of post.comments) {%>
-                                    <p class="comment">
-                                        <%-comment%>
-                                    </p>
-                                    <%}%>
-                        </div>
-                        <%}%>
-                    </div>
-
-            </div>
+            <%for (comment of post.comments) {%>
+            <p class="comment"><%-comment%></p>
+            <%}%>
+          </div>
+          <%}%>
+        </div>
+      </div>
     </div>
     <%} else { %>
 
-        <div class="post-container">
-            <% for(let post of posts){ %>
-                <div class="card">
-                    <div class="card-body">
-                        <p>
-                            <%- moment(post.createdAt).fromNow() %>
-                        </p>
-                        <%- post.body%>
+    <div class="post-container">
+      <% for(let post of posts){ %>
+      <div class="card">
+        <div class="card-body">
+          <p><%- moment(post.createdAt).fromNow() %></p>
+          <%- post.body%>
 
-                            <div class="card-like-comment">
-                                <div class="likes-comments mx-3">
-                                    <span>10 likes</span>
-                                    <a href="/post/add-like"> <span class="material-icons"> thumb_up </span></a>
-                                </div>
-                                <div class="likes-comments">
-                                    <span>10 comments</span>
-                                    <a href="/comment/add-comment"><span class="material-icons mx-3"> comment</span></a>
-                                </div>
-
-                            </div>
-                    </div>
-                    <%}%>
-                </div>
-        </div>
-
-        <% } %>
-
-
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="post" tabindex="-1" aria-labelledby="post" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="post">Create a post...</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="/post/add-post" method="post">
-                            <div class="modal-body">
-                                <textarea name="body" id="" cols="30" rows="3" placeholder="What's on your mind?" required></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Create Post</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+          <div class="card-like-comment">
+            <div class="likes-comments mx-3">
+              <span>10 likes</span>
+              <a href="/post/add-like">
+                <span class="material-icons"> thumb_up </span></a
+              >
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+            <div class="likes-comments">
+              <span>10 comments</span>
+              <a href="/comment/add-comment"
+                ><span class="material-icons mx-3"> comment</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </div>
 
+    <% } %>
 
-
-</body>
-
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="post"
+      tabindex="-1"
+      aria-labelledby="post"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="post">Create a post...</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <form action="/post/add-post" method="post">
+            <div class="modal-body">
+              <textarea
+                name="body"
+                id=""
+                cols="30"
+                rows="3"
+                placeholder="What's on your mind?"
+                required
+              ></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Create Post</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
