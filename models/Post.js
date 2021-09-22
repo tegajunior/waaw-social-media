@@ -8,6 +8,9 @@ const postSchema = new Schema({
         type: Number,
         default: 0,
     },
+    user: {
+        type: String
+    },
     likedBy: [{
         type: mongoose.Types.ObjectId,
         ref: "user"

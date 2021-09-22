@@ -15,7 +15,7 @@ module.exports = {
                 let test = like == req.user.id;
                 if (test) {
                     req.flash("error-message", "Not allowed! You can only like a post once.");
-                    return res.redirect("/user/profile")
+                    return res.redirect("back");
                 }
 
             }
