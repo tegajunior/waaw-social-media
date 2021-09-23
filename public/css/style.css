@@ -859,7 +859,8 @@ input[type="submit"] {
     line-height: 64px;
     color: #FF735C;
     text-align: center;
-    /* margin-top: 100px;  */
+    margin-bottom: 20px;
+
 }
 
 .reset_form .inputBox input {
@@ -869,6 +870,7 @@ input[type="submit"] {
     border: 1px solid #555;
     color: #111;
     outline: none;
+    margin-top:10px;
 }
 
 .resetBotton {
