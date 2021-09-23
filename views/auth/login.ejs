@@ -19,7 +19,7 @@
             <button type="submit" class="btn-search">Go</button>
         </form>
     </div>
-    <%- include('../partials/head')-%>
+    <!-- <%- include('../partials/head')-%> -->
 
 
     <div class="login-container">
@@ -38,21 +38,23 @@
       <form action="/auth/login" method="post">
         <div class="inputBox">
           <label for="email"></label>
-        <input type="text" name="value" id="" placeholder="Username" />
+        <input type="text" name="value" id="" placeholder="Username"/>
         </div>
         <div class="inputBox">
           <label for="password"></label>
-        <input type="password" name="password" id="password" placeholder="Password" />
+        <input type="password" name="password" id="password" placeholder="Password"/>
         </div>
         <div class="signinButton">
-          <input type="submit" href="verify-button" value="Sign In"/>
+          <button class="btn" type="submit" href="verify-button">Sign In</button>
         </div>
       </form>
     
     </div>
    <div class="forgot">
-    <h5>Forgot password?<a href="/auth/password-reset"> Reset Password.</a></h5>
-    <div><input type="submit" onclick="window.location.href='/'" href="verify-button" value="Sign Up"/></div>
+    <h5><a href="/auth/password-reset">Forgotten password?</a></h5>
+    <h5><a href="/auth/register"> Register here?</a></h5>
+
+    <!-- <div><button class="btn" type="submit" onclick="window.location.href='/'" href="verify-button">Sign Up</button></div> -->
   </div>
     </div>
 
