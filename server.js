@@ -34,10 +34,6 @@ app.use(passport.session());
 require("./startup/basicAppInit")(app);
 app.use(globalVariables);
 
-app.get('/auth/testing', (req, res) => {
-    res.render('auth/forgotpassword');
-})
-
 app.get(
     "/auth/google/waawsocial",
     passport.authenticate("google", { failureRedirect: "/auth/register" }),
