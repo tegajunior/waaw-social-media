@@ -9,6 +9,10 @@ const userSchema = new Schema({
     email: {
         type: String,
     },
+    userImage: {
+        type: String,
+
+    },
     password: {
         type: String,
     },

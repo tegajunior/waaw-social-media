@@ -2,6 +2,7 @@ const User = require("../../models/User");
 const Post = require("../../models/Post");
 const Comment = require("../../models/Post");
 const arraySort = require('array-sort');
+
 module.exports = {
     profile: async(req, res) => {
         if (!req.user) {
@@ -12,7 +13,12 @@ module.exports = {
             return res.redirect("back");
         }
         const id = req.user.id;
-        const userPosts = await User.findById(id).populate('posts comments');
+        const userPosts = await User.findById(id).populate({
+            path: 'posts',
+            model: 'post',
+            populate: { path: 'comments', model: 'comment' }
+
+        })
         let { posts } = userPosts;
         posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
         return res.render("user/user", { posts });
@@ -28,9 +34,15 @@ module.exports = {
         }
 
         const id = req.user.id;
-        const userPosts = await User.findById(id).populate('posts');
+        const userPosts = await User.findById(id).populate({
+            path: 'posts',
+            model: 'post',
+            populate: { path: 'likedBy', model: 'user' },
+            path: 'comments',
+            model: 'comment'
+        });
         const { posts } = userPosts;
-
+        console.log(posts);
         posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
         return res.render("user/user", { posts });
     }

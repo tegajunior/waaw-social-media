@@ -1,5 +1,6 @@
 const Post = require("../../models/Post");
 const User = require("../../models/User");
+const Comment = require("../../models/Comment");
 const arraySort = require('array-sort');
 module.exports = {
     postPost: async(req, res) => {
@@ -10,7 +11,8 @@ module.exports = {
         }
         const { body } = req.body;
 
-        let post = new Post({ body, user: req.user.username || req.user.name });
+        let post = new Post({ body, user: req.user.username || req.user.name, userImage: req.user.userImage });
+        console.log(req.user.userImage);
         await post.save();
         if (!post) {
             req.flash("error-message", "Could not save post");
@@ -24,8 +26,9 @@ module.exports = {
         res.redirect("back");
     },
     getPosts: async(req, res) => {
-        let posts = await Post.find().populate('comments likedBy');
+        let posts = await Post.find().populate({ path: 'comments', model: 'comment', populate: { path: 'user', model: 'user' } }).populate({ path: 'likedBy', model: 'user' });
         posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
+
         res.render("defaults/post", { posts })
     }
 };
