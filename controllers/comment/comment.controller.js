@@ -18,10 +18,10 @@ module.exports = {
             return res.redirect("back");
         }
         const postComment = await Post.findById(postId);
-        await postComment.comments.unshift(newComment.body);
+        await postComment.comments.unshift(newComment._id);
         await postComment.save();
         const userComment = await User.findById(userid);
-        await userComment.comments.push(newComment._id);
+        await userComment.comments.unshift(newComment._id);
         await userComment.save();
         return res.redirect("back");
     },

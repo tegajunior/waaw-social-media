@@ -11,11 +11,18 @@ const postSchema = new Schema({
     user: {
         type: String
     },
+    userImage: {
+        type: String
+    },
     likedBy: [{
         type: mongoose.Types.ObjectId,
         ref: "user"
     }],
-    comments: [],
+    comments: [{
+        type: mongoose.Types.ObjectId,
+        ref: "comment"
+
+    }],
 }, { timestamps: true });
 
 const Post = mongoose.model('post', postSchema);

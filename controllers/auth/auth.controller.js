@@ -3,6 +3,8 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const verifyEmail = require("../../utils/verifyEmail");
+var toonavatar = require('cartoon-avatar');
+const url = toonavatar.generate_avatar();
 module.exports = {
     login: async(req, res) => {
         res.render("auth/login");
@@ -38,6 +40,7 @@ module.exports = {
             googleId,
             password: hashedPassword,
             secretToken,
+            userImage: url
         });
         await verifyEmail(req, username, email, secretToken);
 
