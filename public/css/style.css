@@ -863,7 +863,6 @@ input[type="submit"] {
     color: #FF735C;
     text-align: center;
     margin-bottom: 20px;
-
 }
 
 .reset_form .inputBox input {
@@ -873,7 +872,7 @@ input[type="submit"] {
     border: 1px solid #555;
     color: #111;
     outline: none;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .resetBotton {
@@ -889,7 +888,6 @@ button[type="submit"] {
     background-color: #FF735C;
     color: #ffffff;
     border: none;
-
 }
 
 .reset_form input {
@@ -911,7 +909,6 @@ form label {
     font-size: 20px;
     padding-left: 16px;
 }
-<<<<<<< HEAD
 
 
 /* Post Card */
@@ -1131,7 +1128,8 @@ form label {
         display: none;
     }
 }
-=======
+
+
 /* .reset_form .inputBox label {
     position: relative;
     width: 100%;
@@ -1140,12 +1138,13 @@ form label {
     color: #111;
     outline: none;
 } */
-.emailInput{
+
+.emailInput {
     margin-bottom: 25px;
     margin-top: 15px;
 }
-.button-forgot-password {
 
+.button-forgot-password {
     padding: 2rem;
     border-radius: 5px 5px 5px 5px;
     background-color: #FF735C;
@@ -1154,12 +1153,10 @@ form label {
     line-height: 2;
     font-weight: bold;
 }
-.button-forgot-password:hover{
+
+.button-forgot-password:hover {
     cursor: pointer;
     background-color: #fff;
-    color:#FF735C;
+    color: #FF735C;
     border: 2px solid #FF735C;
-} 
-
-
->>>>>>> cd10482ed33136519d495b6e757237a85184c3d6
+}
