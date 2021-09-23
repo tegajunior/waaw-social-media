@@ -35,7 +35,7 @@ module.exports = () => {
             return done(
               null,
               user,
-              req.flash("success-message", "Login successful")
+              req.flash("success-message", `Welcome ${user.username}`)
             );
           })
           .catch((err) => {

@@ -97,14 +97,14 @@
 
     <div class="aligned">
       <% if (isAuthenticated) {%>
-      <div class="profile-post">
-        <div class="postarea" data-bs-toggle="modal" data-bs-target="#post">
+        <div class="profile-post">
+          
+          <div class="postarea" data-bs-toggle="modal" data-bs-target="#post">
+          <%- include('../messages') -%>
           What's on your mind?...
         </div>
       </div>
-      <div style="width: 40%; margin: 0 0 0 100px; justify-self: center">
-        <%- include('../messages') -%>
-      </div>
+      <div style="width: 40%; margin: 0 0 0 100px; justify-self: center"></div>
 
       <div class="post-container">
         <% for(let post of posts){ %>
