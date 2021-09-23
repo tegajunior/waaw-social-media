@@ -55,7 +55,12 @@ module.exports = {
         );
         return res.redirect("/auth/verify-account");
     },
-    passwordReset: async(req, res) => {},
+    passwordReset: async(req, res) => {
+        res.render ('auth/resetpassword');
+    },
+    forgotPassword: async(req, res) => {
+        res.render ('auth/forgotpassword');
+    },
     logout: async(req, res) => {
         req.logout();
         req.flash("success-message", "We will be glad to have you back.")
