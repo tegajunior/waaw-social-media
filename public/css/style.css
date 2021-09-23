@@ -706,6 +706,9 @@ textarea:focus {
 
 /* STYLING FOR LOGIN PAGE */
 
+.
+/* STYLING FOR LOGIN PAGE */
+
 .login-container {
     width: 100%;
     min-height: 100vh;
@@ -764,7 +767,11 @@ textarea:focus {
     border-radius: 5px 5px 5px 5px;
 }
 
-.login-content button {
+.login-content .inputBox input::placeholder {
+    color: rgb(179, 176, 176);
+}
+
+.login-content>button {
     font-size: 1em;
     color: #fff;
     width: 100%;
@@ -791,15 +798,19 @@ textarea:focus {
     align-items: center;
 }
 
-input[type="submit"] {
+.signinButton button {
+    background: #FF735C;
+    color: #FFFFFF;
+    border: none;
     padding: 0.5em 2em;
     border-radius: 5px 5px 5px 5px;
 }
 
-.signinButton input[type="submit"] {
-    background: #FF735C;
-    color: #FFFFFF;
-    border: none;
+.signinButton button:hover {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #FF735C;
+    border: 2px solid #FF735C;
 }
 
 .forgot {
@@ -822,13 +833,31 @@ input[type="submit"] {
 
 .forgot h5 a {
     text-decoration: none;
+    color: #FF735C;
 }
 
-.forgot input[type="submit"] {
+.forgot h5 a:hover {
+    border-bottom: 1px solid #FF735C;
+}
+
+.forgot button {
     color: #FF735C;
     background-color: #FFFFFF;
     margin-top: 0.5em;
     border: 1px solid #FF735C;
+    padding: 0.5em 2em;
+    border-radius: 5px 5px 5px 5px;
+}
+
+ ::placeholder {
+    color: gray;
+}
+
+.forgot button:hover {
+    cursor: pointer;
+    background-color: #FF735C;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
 }
 
 
