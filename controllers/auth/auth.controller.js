@@ -9,7 +9,9 @@ module.exports = {
     login: async(req, res) => {
         res.render("auth/login");
     },
-    register: async(req, res) => {},
+    register: async(req, res) => {
+        res.render('defaults/index')
+    },
     postRegister: async(req, res) => {
         const { username, password, email } = req.body;
         const googleId = null;
@@ -56,10 +58,10 @@ module.exports = {
         return res.redirect("/auth/verify-account");
     },
     passwordReset: async(req, res) => {
-        res.render ('auth/resetpassword');
+        res.render('auth/resetpassword');
     },
     forgotPassword: async(req, res) => {
-        res.render ('auth/forgotpassword');
+        res.render('auth/forgotpassword');
     },
     logout: async(req, res) => {
         req.logout();

@@ -23,34 +23,35 @@
 
 
     <div class="login-container">
+
         <div class="login-content">
+            <%- include('../messages') -%>
+                <a href="/auth/google" class=""><span><i class="fab fa-google"></i>Sign in with Google</span></a>
 
-            <a href="/auth/google" class=""><span><i class="fab fa-google"></i>Sign in with Google</span></a>
-
-            <!-- <div class="line">
+                <!-- <div class="line">
                 <div class="line-1"></div>
                 <h5>Or</h5>
                 <div class="line-2"></div>
             </div> -->
-            <h1>Log in</h1>
-            <form action="/auth/login" method="post">
-                <div class="inputBox">
-                    <label for="email"></label>
-                    <input type="text" name="value" id="" placeholder="Username" />
-                </div>
-                <div class="inputBox">
-                    <label for="password"></label>
-                    <input type="password" name="password" id="password" placeholder="Password" />
-                </div>
-                <div class="signinButton">
-                    <button class="btn" type="submit" href="verify-button">Sign In</button>
-                </div>
-            </form>
+                <h1>Log in</h1>
+                <form action="/auth/login" method="post">
+                    <div class="inputBox">
+                        <label for="email"></label>
+                        <input type="text" name="value" id="" placeholder="Username" required/>
+                    </div>
+                    <div class="inputBox">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password" placeholder="Password" required/>
+                    </div>
+                    <div class="signinButton">
+                        <button class="btn" type="submit" href="verify-button">Sign In</button>
+                    </div>
+                </form>
 
         </div>
         <div class="forgot">
             <h5><a href="/auth/password-reset">Forgot password?</a></h5>
-            <h5><a href="/"> Register here?</a></h5>
+            <h5><a href="/auth/register"> Register here?</a></h5>
 
             <!-- <div><button class="btn" type="submit" onclick="window.location.href='/'" href="verify-button">Sign Up</button></div> -->
         </div>
