@@ -33,7 +33,6 @@ module.exports = {
     },
     deletePost: async(req, res) => {
         let { postId, postUser } = req.params;
-        console.log(postUser);
         if (!req.user) {
             req.flash('error-message', "You don't have permission to delete this post.")
             return res.redirect("back")
