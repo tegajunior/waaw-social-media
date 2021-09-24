@@ -6,6 +6,10 @@ const userSchema = new Schema({
     username: {
         type: String,
     },
+    initials: {
+        type: String,
+    },
+
     email: {
         type: String,
     },
