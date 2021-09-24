@@ -1,6 +1,7 @@
 const randomstring = require("randomstring");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
+const mongoose = require("mongoose");
 const User = require("../../models/User");
 const verifyEmail = require("../../utils/verifyEmail");
 const resetPasswordEmail = require("../../utils/resetPasswordEmail");
