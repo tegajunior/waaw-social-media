@@ -16,6 +16,9 @@ module.exports = {
     },
     postRegister: async(req, res) => {
         const { username, password, email } = req.body;
+        let avatar = Array.from(username);
+        avatar = (avatar[0] + avatar[1]).toUpperCase();
+        console.log(avatar);
         const googleId = null;
         if (password.length < 6) {
             req.flash("error-message", "Password must be atleast 6 characters long.");
@@ -44,7 +47,8 @@ module.exports = {
             googleId,
             password: hashedPassword,
             secretToken,
-            userImage: url
+            userImage: url,
+            initials: avatar
         });
         await verifyEmail(req, username, email, secretToken);
 
@@ -59,77 +63,77 @@ module.exports = {
         );
         return res.redirect("/auth/verify-account");
     },
-    resetPassword: async (req, res) => {
-      const { userId } = req.params;
-      let user = await User.findById(userId);
-      if (!user) {
-        req.flash("error-message", "Account not found, please signup");
-        return res.redirect("/auth/register");
-      }
-      req.flash(
-        "success-message",
-        "Please enter your new passssword and confirm"
-      );
-      res.render("auth/resetpassword", { userId });
-    },
-    postResetPassword: async (req, res) => {
-      const { newPassword, confirmNewPassword } = req.body;
-      let { userId } = req.params;
-      //console.log(req.body.confirmNewpassword);
-      if (newPassword.length < 6) {
-        req.flash("error-message", "Password must be at least 6 characters");
-        return res.redirect("back");
-      }
-      if (newPassword !== confirmNewPassword) {
+    resetPassword: async(req, res) => {
+        const { userId } = req.params;
+        let user = await User.findById(userId);
+        if (!user) {
+            req.flash("error-message", "Account not found, please signup");
+            return res.redirect("/auth/register");
+        }
         req.flash(
-          "error-message",
-          "Password mismatch, please retype your password"
+            "success-message",
+            "Please enter your new passssword and confirm"
         );
-        return res.redirect("back");
-      }
-      const salt = await bcrypt.genSalt(); //uses 10 by default
-      const hashedPassword = await bcrypt.hash(newPassword, salt);
-  
-      userId = mongoose.Types.ObjectId(userId);
-      let user = await User.findOne({ _id: userId });
-      if (!user) {
-        req.flash("error-message", "User not found");
-        return res.redirect("back");
-      }
-      user.password = hashedPassword;
-      await user.save();
-      if (!user) {
-        req.flash("error-message", "Something went wrong");
-        return res.redirect("back");
-      }
-      req.flash(
-        "success-message",
-        "Password has been updated, Please login again"
-      );
-      console.log(req.body);
-      return res.redirect("/auth/login");
+        res.render("auth/resetpassword", { userId });
     },
-    forgotPassword: async (req, res) => {
-      res.render("auth/forgotpassword");
+    postResetPassword: async(req, res) => {
+        const { newPassword, confirmNewPassword } = req.body;
+        let { userId } = req.params;
+        //console.log(req.body.confirmNewpassword);
+        if (newPassword.length < 6) {
+            req.flash("error-message", "Password must be at least 6 characters");
+            return res.redirect("back");
+        }
+        if (newPassword !== confirmNewPassword) {
+            req.flash(
+                "error-message",
+                "Password mismatch, please retype your password"
+            );
+            return res.redirect("back");
+        }
+        const salt = await bcrypt.genSalt(); //uses 10 by default
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        userId = mongoose.Types.ObjectId(userId);
+        let user = await User.findOne({ _id: userId });
+        if (!user) {
+            req.flash("error-message", "User not found");
+            return res.redirect("back");
+        }
+        user.password = hashedPassword;
+        await user.save();
+        if (!user) {
+            req.flash("error-message", "Something went wrong");
+            return res.redirect("back");
+        }
+        req.flash(
+            "success-message",
+            "Password has been updated, Please login again"
+        );
+        console.log(req.body);
+        return res.redirect("/auth/login");
     },
-    postForgotPassword: async (req, res) => {
-      const { email } = req.body;
-      let user = await User.findOne({ email });
-      if (!user) {
-        req.flash("error-message", "User with the email not found");
-        return res.redirect("back");
-      }
-      console.log(user);
-      const userId = user._id;
-      const username = user.username;
-  
-      await resetPasswordEmail(req, username, email, userId);
-  
-      req.flash(
-        "success-message",
-        "Password reset link has been sent to your email address"
-      );
-      res.redirect("back");
+    forgotPassword: async(req, res) => {
+        res.render("auth/forgotpassword");
+    },
+    postForgotPassword: async(req, res) => {
+        const { email } = req.body;
+        let user = await User.findOne({ email });
+        if (!user) {
+            req.flash("error-message", "User with the email not found");
+            return res.redirect("back");
+        }
+        console.log(user);
+        const userId = user._id;
+        const username = user.username;
+
+        await resetPasswordEmail(req, username, email, userId);
+
+        req.flash(
+            "success-message",
+            "Password reset link has been sent to your email address"
+        );
+        res.redirect("back");
     },
     logout: async(req, res) => {
         req.logout();

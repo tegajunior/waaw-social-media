@@ -14,11 +14,13 @@ module.exports = () => {
                 userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
             },
             function(accessToken, refreshToken, profile, cb) {
+                let avatar = Array.from(profile._json.name);
                 User.findOrCreate({
                         googleId: profile.id,
                         email: profile._json.email,
                         name: profile._json.name,
                         userImage: profile._json.picture,
+                        initials: (avatar[0] + avatar[1]).toUpperCase()
                     },
                     function(err, user) {
                         return cb(err, user);

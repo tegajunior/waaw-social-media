@@ -31,6 +31,9 @@
                     </li>
                 </ul>
                 <% if (isAuthenticated) {%>
+                    <div class="username-circle" style="background:#FFFFFF; color:#000000">
+                        <%-user.initials%>
+                    </div>
                     <a class="navbar-text" href="/post/allposts">View Other People's Posts</a>
                     <a class="navbar-text px-3" href="/auth/logout">Logout</a>
                     <%} else { %>
