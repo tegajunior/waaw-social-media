@@ -6,7 +6,9 @@ const {
     postLogin,
     postRegister,
     logout,
-    passwordReset,
+    resetPassword,
+    postResetPassword,
+    postForgotPassword,
     forgotPassword,
     verifyUserRegisteredEmail,
     verifyToken,
@@ -20,9 +22,14 @@ router.route("/register").get(register).post(postRegister);
 
 router.get("/logout", logout);
 
-router.get("/password-reset", passwordReset);
+// router.get("/password-reset", passwordReset);
 
-router.get("/forgot-password", forgotPassword);
+// router.get("/forgot-password", forgotPassword);
+
+router.get("/reset-password/:userId", resetPassword);
+router.post("/reset-password/:userId", postResetPassword)
+
+router.route("/forgot-password").get(forgotPassword).post(postForgotPassword);
 
 
 router.get("/verify-account/:token", verifyUserRegisteredEmail);
