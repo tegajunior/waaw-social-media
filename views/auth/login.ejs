@@ -23,30 +23,32 @@
 
 
     <div class="login-container">
-
-        <div class="login-content">
+        <div class="flashmessages">
             <%- include('../messages') -%>
-                <a href="/auth/google" class=""><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+        </div>
+        <div class="login-content">
 
-                <!-- <div class="line">
+            <a href="/auth/google" class=""><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+
+            <!-- <div class="line">
                 <div class="line-1"></div>
                 <h5>Or</h5>
                 <div class="line-2"></div>
             </div> -->
-                <h1>Log in</h1>
-                <form action="/auth/login" method="post">
-                    <div class="inputBox">
-                        <label for="email"></label>
-                        <input type="text" name="value" id="" placeholder="Username" required/>
-                    </div>
-                    <div class="inputBox">
-                        <label for="password"></label>
-                        <input type="password" name="password" id="password" placeholder="Password" required/>
-                    </div>
-                    <div class="signinButton">
-                        <button class="btn" type="submit" href="verify-button">Sign In</button>
-                    </div>
-                </form>
+            <h1>Log in</h1>
+            <form action="/auth/login" method="post">
+                <div class="inputBox">
+                    <label for="email"></label>
+                    <input type="text" name="value" id="" placeholder="Username" required/>
+                </div>
+                <div class="inputBox">
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="Password" required/>
+                </div>
+                <div class="signinButton">
+                    <button class="btn" type="submit" href="verify-button">Sign In</button>
+                </div>
+            </form>
 
         </div>
         <div class="forgot">

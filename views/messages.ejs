@@ -1,73 +1,76 @@
 <div class="container">
-  <% if (error_message && error_message.length > 0) { %>
-  <div class="error-message-container message-container">
-    <%- error_message %>
-    <button class="close" type="button">
+    <% if (error_message && error_message.length > 0) { %>
+        <div class="error-message-container message-container">
+            <%- error_message %>
+                <button class="close" type="button">
       <span>&times;</span>
     </button>
-  </div>
-  <% } %> <% if (success_message && success_message.length > 0) { %>
-  <div class="success-message-container message-container">
-    <%- success_message %>
-    <button class="close" type="button">
+        </div>
+        <% } %>
+            <% if (success_message && success_message.length > 0) { %>
+                <div class="success-message-container message-container">
+                    <%- success_message %>
+                        <button class="close" type="button">
       <span>&times;</span>
     </button>
-  </div>
-  <% } %>
+                </div>
+                <% } %>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"
-></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
-  $(document).ready(function () {
-    setTimeout(() => {
-      $(".message-container").fadeOut().slideUp();
-    }, 15000);
+    $(document).ready(function() {
+        setTimeout(() => {
+            $(".message-container").fadeOut().slideUp();
+        }, 5000);
 
-    $(".close").click(() => {
-      $(".message-container").fadeOut().slideUp();
-    })
-  });
+        $(".close").click(() => {
+            $(".message-container").fadeOut().slideUp();
+        })
+    });
 </script>
 
 <style>
-  .container {
-    width: 70%;
-  }
-  .message-container {
-    padding: 10px 15px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .success-message-container {
-    background: #BCFFB9;
-    color: #327c5d;
-    font-weight: lighter;
-  }
-  .error-message-container {
-    background: #fdd2bf;
-    color: #ff6b6b;
-    font-weight: lighter;
-  }
-  button.close {
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: transparent;
-    font-size: 2rem;
-    align-self: flex-end;
-    color: inherit;
-  }
-  button.close:hover {
-    cursor: pointer;
-  }
-  button.close span {
-    font-size: 2rem;
-    color: inherit;
-  }
+    .container {
+        width: 100%;
+    }
+    
+    .message-container {
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .success-message-container {
+        background: #BCFFB9;
+        color: #327c5d;
+        font-weight: lighter;
+    }
+    
+    .error-message-container {
+        background: #fdd2bf;
+        color: #ff6b6b;
+        font-weight: lighter;
+    }
+    
+    button.close {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: transparent;
+        font-size: 2rem;
+        align-self: flex-end;
+        color: inherit;
+    }
+    
+    button.close:hover {
+        cursor: pointer;
+    }
+    
+    button.close span {
+        font-size: 2rem;
+        color: inherit;
+    }
 </style>

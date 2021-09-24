@@ -24,31 +24,34 @@
                 <button type="submit" class="btn-search">Go</button>
             </form> -->
         </div>
+
         <div class="container_signup">
-
-            <div class="signup_form">
+            <div class="flashmessages">
                 <%- include('../messages') -%>
-                    <h1>Create a new account</h1>
+            </div>
+            <div class="signup_form">
 
-                    <a href="/auth/google"><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+                <h1>Create a new account</h1>
 
-                    <div class="line">
-                        <div class="line-1"></div>
-                        <h5>Or</h5>
-                        <div class="line-2"></div>
+                <a href="/auth/google"><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+
+                <div class="line">
+                    <div class="line-1"></div>
+                    <h5>Or</h5>
+                    <div class="line-2"></div>
+                </div>
+                <form action="/auth/register" method="post">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" maxlength="15" placeholder="Type your username(maximum of 15)" required>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="" placeholder="Example: name@gmail.com" required>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="6+ characters" required>
+                    <div class="form-button">
+                        <button type="submit" class="">Sign up</button>
+                        <button type="button" onclick="window.location.href='/auth/login'" class="">Sign in</button>
                     </div>
-                    <form action="/auth/register" method="post">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Type your username" required>
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="" placeholder="Example: name@gmail.com" required>
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="6+ characters" required>
-                        <div class="form-button">
-                            <button type="submit" class="">Sign up</button>
-                            <button type="button" onclick="window.location.href='/auth/login'" class="">Sign in</button>
-                        </div>
-                    </form>
+                </form>
             </div>
             <div class="signup_image"></div>
         </div>

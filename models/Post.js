@@ -14,6 +14,9 @@ const postSchema = new Schema({
     userImage: {
         type: String
     },
+    userId: {
+        type: String
+    },
     likedBy: [{
         type: mongoose.Types.ObjectId,
         ref: "user"

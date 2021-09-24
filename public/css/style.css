@@ -972,7 +972,7 @@ form label {
 
 .post__form {
     display: grid;
-    grid-template-areas: 'form form form form' 'postcard postcard postcard postcard' 'post post post post';
+    grid-template-areas: 'flash flash flash flash''form form form form' 'postcard postcard postcard postcard' 'post post post post';
     grid-gap: 10px;
     padding: 10px;
     width: 50vw;
@@ -987,7 +987,7 @@ form label {
     grid-area: form;
     display: flex;
     flex-direction: column;
-    border: 1px solid #F9F9F9;
+    border: 1px solid #e6e6e6;
     border-radius: 5px;
 }
 
@@ -1058,6 +1058,7 @@ form label {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
 }
 
 .username-circle img {
@@ -1073,7 +1074,7 @@ form label {
     flex-direction: column;
     justify-content: start;
     position: relative;
-    right: 80px;
+    right: 70px;
 }
 
 .username-time span {
@@ -1212,4 +1213,12 @@ form label {
     background-color: #fff;
     color: #FF735C;
     border: 2px solid #FF735C;
+}
+
+.flashmessages {
+    position: fixed;
+    top: 60px;
+    width: 30vw;
+    height: 10vh;
+    grid-area: flash;
 }

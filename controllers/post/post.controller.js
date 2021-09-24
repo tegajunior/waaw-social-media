@@ -11,7 +11,7 @@ module.exports = {
         }
         const { body } = req.body;
 
-        let post = new Post({ body, user: req.user.username || req.user.name, userImage: req.user.userImage });
+        let post = new Post({ body, user: req.user.username || req.user.name, userImage: req.user.userImage, userId: req.user.id });
         console.log(req.user.userImage);
         await post.save();
         if (!post) {
@@ -30,5 +30,22 @@ module.exports = {
         posts = arraySort(posts, ['createdAt', '_id'], { reverse: true });
 
         res.render("defaults/post", { posts })
+    },
+    deletePost: async(req, res) => {
+        let { postId, postUser } = req.params;
+        if (!req.user) {
+            req.flash('error-message', "You don't have permission to delete this post.")
+            return res.redirect("back")
+        }
+        if (req.user.id != postUser) {
+            req.flash('error-message', "You don't have permission to delete another user's post.")
+            return res.redirect("back")
+        }
+
+        await Post.findByIdAndDelete(postId).then(() => {
+            req.flash('success-message', 'Post deleted successfully')
+            return res.redirect("back");
+        })
+
     }
 };
