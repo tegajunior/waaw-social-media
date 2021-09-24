@@ -15,14 +15,15 @@ module.exports = () => {
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
       },
       function (accessToken, refreshToken, profile, cb) {
+        console.log(profile);
         User.findOrCreate(
           {
             googleId: profile.id,
             email: profile._json.email,
             name: profile._json.name,
+            userImage: profile._json.picture,
           },
           function (err, user) {
-            console.log(user);
             return cb(err, user);
           }
         );
