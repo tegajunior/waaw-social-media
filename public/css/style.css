@@ -972,7 +972,7 @@ form label {
 
 .post__form {
     display: grid;
-    grid-template-areas: 'form form form form' 'postcard postcard postcard postcard' 'post post post post';
+    grid-template-areas: 'flash flash flash flash''form form form form' 'postcard postcard postcard postcard' 'post post post post';
     grid-gap: 10px;
     padding: 10px;
     width: 50vw;
@@ -1213,4 +1213,12 @@ form label {
     background-color: #fff;
     color: #FF735C;
     border: 2px solid #FF735C;
+}
+
+.flashmessages {
+    position: fixed;
+    top: 60px;
+    width: 30vw;
+    height: 10vh;
+    grid-area: flash;
 }
