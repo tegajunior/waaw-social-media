@@ -18,14 +18,13 @@ body {
     justify-content: space-between;
     background: #FF735C;
     height: 44px;
-    position: fixed;
     z-index: 1;
+    padding-left: 5px;
 }
 
 .header_signup_text h2 {
     color: #FFFFFF;
     font-size: 20px;
-    margin-left: 5px;
 }
 
 .fa-google {
@@ -41,7 +40,7 @@ input {
 }
 
 .signup-icons a {
-    /* margin: 10px 10px; */
+    margin-left: 40px;
     font-size: 20px;
     text-align: center;
     border-radius: 5px;
@@ -441,7 +440,7 @@ form button:nth-of-type(2):hover {
 }
 
 .login-container {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -600,7 +599,9 @@ form button:nth-of-type(2):hover {
 
 textarea {
     resize: none;
-    border: none;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    width: 100%;
     padding: 5px;
 }
 
@@ -615,13 +616,15 @@ textarea:focus {
     width: 40%;
 }
 
-.card {
-    border: none;
-}
 
-.card-body {
-    border-bottom: 1px solid red;
-}
+/* .card {
+    border:none;
+} */
+
+
+/* .card-body {
+    background: #C4C4C4;
+} */
 
 .card-like-comment {
     display: flex;
@@ -676,15 +679,14 @@ textarea:focus {
 .hidemodal {
     display: none;
     width: 50%;
-    height: 20%;
-    border: 1px solid red;
+    height: 10%;
 }
 
 .showmodal {
     display: flex;
     width: 100%;
-    height: 20%;
-    border: 1px solid #978F8F;
+    height: 5%;
+    /* border: 1px solid #978F8F; */
     justify-content: center;
     padding: 10px 10px;
     border-radius: 5px;
@@ -703,9 +705,13 @@ textarea:focus {
 
 /* STYLING FOR LOGIN PAGE */
 
+
+/* STYLING FOR LOGIN PAGE */
+
 .login-container {
+    margin-top: 40px auto;
     width: 100%;
-    min-height: 100vh;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -714,17 +720,31 @@ textarea:focus {
 
 .login-content {
     /* max-width: 900px; */
+    margin-top: 100px;
     padding: 60px 70px;
     border: 1px solid black;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.signup-icon {
+.login-content a {
+    padding: 5px;
     display: flex;
-    flex-direction: row;
+    height: 30px;
     justify-content: center;
     align-items: center;
+    background: #FF735C;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.login-content a:hover {
+    color: #FF735C;
+    background: #FFFFFF;
+    border: 1px solid #FF735C;
 }
 
 .login-content h1 {
@@ -761,7 +781,11 @@ textarea:focus {
     border-radius: 5px 5px 5px 5px;
 }
 
-.login-content button {
+.login-content .inputBox input::placeholder {
+    color: rgb(179, 176, 176);
+}
+
+.login-content>button {
     font-size: 1em;
     color: #fff;
     width: 100%;
@@ -788,15 +812,19 @@ textarea:focus {
     align-items: center;
 }
 
-input[type="submit"] {
+.signinButton button {
+    background: #FF735C;
+    color: #FFFFFF;
+    border: none;
     padding: 0.5em 2em;
     border-radius: 5px 5px 5px 5px;
 }
 
-.signinButton input[type="submit"] {
-    background: #FF735C;
-    color: #FFFFFF;
-    border: none;
+.signinButton button:hover {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #FF735C;
+    border: 2px solid #FF735C;
 }
 
 .forgot {
@@ -819,13 +847,31 @@ input[type="submit"] {
 
 .forgot h5 a {
     text-decoration: none;
+    color: #FF735C;
 }
 
-.forgot input[type="submit"] {
+.forgot h5 a:hover {
+    border-bottom: 1px solid #FF735C;
+}
+
+.forgot button {
     color: #FF735C;
     background-color: #FFFFFF;
     margin-top: 0.5em;
     border: 1px solid #FF735C;
+    padding: 0.5em 2em;
+    border-radius: 5px 5px 5px 5px;
+}
+
+ ::placeholder {
+    color: gray;
+}
+
+.forgot button:hover {
+    cursor: pointer;
+    background-color: #FF735C;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
 }
 
 
@@ -860,7 +906,6 @@ input[type="submit"] {
     color: #FF735C;
     text-align: center;
     margin-bottom: 20px;
-
 }
 
 .reset_form .inputBox input {
@@ -870,7 +915,7 @@ input[type="submit"] {
     border: 1px solid #555;
     color: #111;
     outline: none;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .resetBotton {
@@ -886,7 +931,6 @@ button[type="submit"] {
     background-color: #FF735C;
     color: #ffffff;
     border: none;
-
 }
 
 .reset_form input {
@@ -908,6 +952,237 @@ form label {
     font-size: 20px;
     padding-left: 16px;
 }
+
+
+/* Post Card */
+
+.navbar-text {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hidelinks {
+    visibility: hidden;
+}
+
+.post__form {
+    display: grid;
+    grid-template-areas: 'form form form form' 'postcard postcard postcard postcard' 'post post post post';
+    grid-gap: 10px;
+    padding: 10px;
+    width: 50vw;
+    margin: 40px auto;
+}
+
+.post__form>div {
+    padding: 15px;
+}
+
+.post__form .form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F9F9F9;
+    border-radius: 5px;
+}
+
+.form button:hover {
+    background: #ee4a31;
+}
+
+.hideBox {
+    display: none;
+}
+
+.showBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-icon-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text-icon-form img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.icons-form {
+    color: #FF735C;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+.icons-form:hover {
+    color: #e23015;
+    cursor: pointer;
+}
+
+.postcard {
+    grid-area: postcard;
+    display: flex;
+    flex-direction: column;
+}
+
+.post__form .post {
+    margin-top: 100px;
+    grid-area: post;
+    border: 1px solid blue;
+    display: grid;
+    grid-template-areas: 'username-circle username username username' 'text text text text' 'post__likes post__likes post__comments post__comments' 'comment-form comment-form comment-form comment-form' 'commentarea commentarea commentarea commentarea';
+    align-items: center;
+    position: relative;
+    border: 2px solid #F9F9F9;
+    box-shadow: 1px 1px 2px 1px #88888877;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.username-circle {
+    grid-area: username-circle;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    background: #978F8F;
+    color: #130606;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.username-circle img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%
+}
+
+.username-time {
+    grid-area: username;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: relative;
+    right: 80px;
+}
+
+.username-time span {
+    /* margin-top: 25px;
+    top: 20px; */
+    /* right: 33%; */
+    /* left: 60%; */
+    font-size: 14px;
+    color: #978F8F;
+}
+
+.text {
+    grid-area: text;
+    margin: 16px 0;
+    line-height: 24px;
+}
+
+.commentarea {
+    grid-area: commentarea;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.commentarea hr {
+    border: 1px solid #F9F9F9;
+}
+
+.commentbody {
+    grid-area: commentbody;
+}
+
+.commenttimestamps {
+    grid-area: commenttimestamps;
+}
+
+.post__likes {
+    grid-area: post__likes;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FF735C;
+    margin-right: 50px;
+}
+
+.post__likes a {
+    color: #FF735C;
+    cursor: pointer;
+}
+
+.post__comments span {
+    color: #FF735C;
+    cursor: pointer;
+}
+
+.post__comments {
+    grid-area: post__comments;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    color: #FF735C;
+}
+
+.comment-form {
+    grid-area: comment-form;
+    margin: 8px 0;
+}
+
+.comment-form input {
+    width: 80%;
+    height: 36px;
+    padding-left: 8px;
+    border-top: 1px solid #F9F9F9;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #F9F9F9;
+}
+
+.comment-form button {
+    background: none;
+    color: #FF735C;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.comment-form button:hover {
+    color: #ee4a31;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .post__form {
+        width: 100%;
+    }
+    .hidelike {
+        display: none;
+    }
+    .username-time {
+        right: 60px;
+    }
+    .username-circle {
+        display: none;
+    }
+}
+
+
 /* .reset_form .inputBox label {
     position: relative;
     width: 100%;
@@ -916,12 +1191,13 @@ form label {
     color: #111;
     outline: none;
 } */
-.emailInput{
+
+.emailInput {
     margin-bottom: 25px;
     margin-top: 15px;
 }
-.button-forgot-password {
 
+.button-forgot-password {
     padding: 2rem;
     border-radius: 5px 5px 5px 5px;
     background-color: #FF735C;
@@ -930,11 +1206,10 @@ form label {
     line-height: 2;
     font-weight: bold;
 }
-.button-forgot-password:hover{
+
+.button-forgot-password:hover {
     cursor: pointer;
     background-color: #fff;
-    color:#FF735C;
+    color: #FF735C;
     border: 2px solid #FF735C;
-} 
-
-
+}

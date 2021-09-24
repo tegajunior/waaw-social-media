@@ -14,49 +14,49 @@
         <div class="header_signup_text">
             <h2>waaw social media</h2>
         </div>
-        <form action="/user/search" method="post">
+        <!-- <form action="/user/search" method="post">
             <input type="search" name="value" id="" placeholder="Search for a username or email">
             <button type="submit" class="btn-search">Go</button>
-        </form>
+        </form>  -->
     </div>
-    <%- include('../partials/head')-%>
+
 
 
     <div class="login-container">
-    <div class="login-content">
-        <div class="signup-icons">
-            <div class="signup-icon">
-                <a href="/auth/google"><span><i class="fab fa-google"></i>Sign in with Google</span></a>
-            </div>
+
+        <div class="login-content">
+            <%- include('../messages') -%>
+                <a href="/auth/google" class=""><span><i class="fab fa-google"></i>Sign in with Google</span></a>
+
+                <!-- <div class="line">
+                <div class="line-1"></div>
+                <h5>Or</h5>
+                <div class="line-2"></div>
+            </div> -->
+                <h1>Log in</h1>
+                <form action="/auth/login" method="post">
+                    <div class="inputBox">
+                        <label for="email"></label>
+                        <input type="text" name="value" id="" placeholder="Username" required/>
+                    </div>
+                    <div class="inputBox">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password" placeholder="Password" required/>
+                    </div>
+                    <div class="signinButton">
+                        <button class="btn" type="submit" href="verify-button">Sign In</button>
+                    </div>
+                </form>
+
         </div>
-        <div class="line">
-            <div class="line-1"></div>
-            <h5>Or</h5>
-            <div class="line-2"></div>
-        </div>
-        <h1>Log in</h1>
-      <form action="/auth/login" method="post">
-        <div class="inputBox">
-          <label for="email"></label>
-        <input type="text" name="value" id="" placeholder="Username" />
-        </div>
-        <div class="inputBox">
-          <label for="password"></label>
-        <input type="password" name="password" id="password" placeholder="Password" />
-        </div>
-        <div class="signinButton">
-          <input type="submit" href="verify-button" value="Sign In"/>
-        </div>
+        <div class="forgot">
+            <h5><a href="/auth/forgot-password">Forgot password?</a></h5>
+            <h5><a href="/auth/register"> Register here?</a></h5>
+       </div>
       </form>
-    
-    </div>
-   <div class="forgot">
-    <h5><a href="/auth/forgot-password">Forgot password?</a></h5>
-    <div><input type="submit" value="Sign Up"/></div>
-  </div>
     </div>
 
-<%- include('../partials/foot')-%>
+    <%- include('../partials/foot')-%>
 
 </body>
 

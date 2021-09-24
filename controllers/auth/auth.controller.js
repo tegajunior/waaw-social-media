@@ -3,20 +3,22 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const verifyEmail = require("../../utils/verifyEmail");
-const resetPasswordEmail = require("../../utils/resetPasswordEmail");
-const mongoose = require("mongoose");
+var toonavatar = require('cartoon-avatar');
+const url = toonavatar.generate_avatar();
 module.exports = {
-  login: async (req, res) => {
-    res.render("auth/login");
-  },
-  register: async (req, res) => {},
-  postRegister: async (req, res) => {
-    const { username, password, email } = req.body;
-    const googleId = null;
-    if (password.length < 6) {
-      req.flash("error-message", "Password must be atleast 6 characters long.");
-      return res.redirect("back");
-    }
+    login: async(req, res) => {
+        res.render("auth/login");
+    },
+    register: async(req, res) => {
+        res.render('defaults/index')
+    },
+    postRegister: async(req, res) => {
+        const { username, password, email } = req.body;
+        const googleId = null;
+        if (password.length < 6) {
+            req.flash("error-message", "Password must be atleast 6 characters long.");
+            return res.redirect("back");
+        }
 
     const emailAlreadyExists = await User.findOne({ email });
     if (emailAlreadyExists) {
