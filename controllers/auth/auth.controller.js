@@ -3,6 +3,7 @@ const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const verifyEmail = require("../../utils/verifyEmail");
+const resetPasswordEmail = require("../../utils/resetPasswordEmail");
 var toonavatar = require('cartoon-avatar');
 const url = toonavatar.generate_avatar();
 module.exports = {
