@@ -55,7 +55,9 @@
             <div class="text-icon-form">Click on the + icon to get started.... <span class="material-icons icons-form" id="add">add_circle</span></div>
             <form action="/post/add-post" id="showBox" class="hideBox" method="post">
                 <div class="modal-body">
-                    <textarea name="body" id="" cols="30" rows="3" placeholder="What's on your mind?" required></textarea>
+                    <textarea name="body" id="textarea" cols="30" rows="3" maxlength="160" placeholder="What's on your mind?" required></textarea>
+                    <small id="notifyarea"></small>
+                    <small style="color: red; font-size:small;">**Only 160 characters allowed**</small>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Create Post</button>
@@ -120,6 +122,12 @@
         let showBox = document.querySelector('#showBox');
         click.addEventListener('click', () => {
             showBox.classList.toggle('showBox')
+        });
+
+        let textLength = document.querySelector("#textarea");
+        let displayArea = document.querySelector("#notifyarea");
+        textLength.addEventListener("input", function(e) {
+            displayArea.innerHTML = `You have ${(160- (e.target.value).length)} characters left.`;
         })
     </script>
 

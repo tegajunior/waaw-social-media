@@ -5,6 +5,7 @@ const arraySort = require('array-sort');
 
 module.exports = {
     profile: async(req, res) => {
+
         if (!req.user) {
             req.flash(
                 "error-message",
