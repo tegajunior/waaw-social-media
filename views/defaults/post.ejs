@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
+
+    <style>
+        body {
+            background: #F3F2EE;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,7 +52,7 @@
     </nav>
 
     <div class="post__form" style="margin-top:100px;">
-        <div class="flashmessages" style="top: 220px; width:50vw;">
+        <div class="flashmessages" style="top: 200px; width:50vw;">
             <%- include('../messages') -%>
         </div>
         <div class="form">
@@ -75,7 +81,7 @@
         <div class="postcard">
 
             <% for(let post of posts){ %>
-                <div class="post">
+                <div class="post" style="background:#FFFFFF;">
                     <%if(isAuthenticated) { %>
                         <div class="username-circle">
                             <img src="<%-post.userImage%>" alt="" />
@@ -123,7 +129,7 @@
                                             <strong><%-comment.user.username ||comment.user.name %></strong>
                                             <%-comment.body%>
                                         </div>
-                                        <div class="commenttimestamps" style="color: gray; font-size:smaller ;">
+                                        <div class="commenttimestamps" style="color: gray; font-size:small ;">
                                             &ndash; &nbsp;
                                             <%- moment(comment.createdAt).fromNow() %>
                                         </div> <br />
