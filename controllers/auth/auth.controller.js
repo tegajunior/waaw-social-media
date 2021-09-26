@@ -18,7 +18,6 @@ module.exports = {
         const { username, password, email } = req.body;
         let avatar = Array.from(username);
         avatar = (avatar[0] + avatar[1]).toUpperCase();
-        console.log(avatar);
         const googleId = null;
         if (password.length < 6) {
             req.flash("error-message", "Password must be atleast 6 characters long.");

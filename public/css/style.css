@@ -1195,6 +1195,60 @@
         grid-area: flash;
     }
     
+    @media screen and (max-width:1340px) {
+        .comment-form button {
+            /* bottom: 80%; */
+            position: absolute;
+            left: 80%;
+            top: 172px;
+        }
+    }
+    
+    @media screen and (max-width:1000px) {
+        .navbar-text {
+            display: block;
+        }
+        .hidelinks {
+            display: none;
+        }
+        .comment-form button {
+            /* bottom: 80%; */
+            position: absolute;
+            left: 80%;
+            top: 163px;
+        }
+    }
+    
+    @media screen and (max-width:900px) {
+        .navbar-text {
+            display: block;
+        }
+        .hidelinks {
+            display: none;
+        }
+        .comment-form button {
+            /* bottom: 80%; */
+            position: absolute;
+            left: 75%;
+            top: 158px;
+        }
+    }
+    
+    @media screen and (max-width:768px) {
+        .navbar-text {
+            display: block;
+        }
+        .hidelinks {
+            display: none;
+        }
+        .comment-form button {
+            /* bottom: 80%; */
+            position: absolute;
+            left: 75%;
+            top: 158px;
+        }
+    }
+    
     @media screen and (max-width:450px) {
         .comment-form button {
             /* bottom: 80%; */
@@ -1202,4 +1256,31 @@
             left: 70%;
             top: 70%;
         }
+        .navbar-text {
+            display: block;
+        }
+        .hidelinks {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width:500px) {
+        .comment-form button {
+            /* bottom: 80%; */
+            position: absolute;
+            left: 70%;
+            top: 70%;
+        }
+    }
+    
+    .postsearch form {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .postsearch input {
+        border: 1px solid #FFFFFF;
+        border-radius: 5px;
+        padding: 0 6px;
+        width: 100%;
     }

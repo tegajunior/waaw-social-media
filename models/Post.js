@@ -28,6 +28,8 @@ const postSchema = new Schema({
     }],
 }, { timestamps: true });
 
+postSchema.index({ body: 'text' });
+
 const Post = mongoose.model('post', postSchema);
 
 module.exports = Post;
