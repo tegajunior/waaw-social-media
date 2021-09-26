@@ -14,11 +14,14 @@ module.exports = {
             for await (let like of post.likedBy) {
                 let test = like == req.user.id;
                 if (test) {
-                    req.flash("error-message", "Not allowed! You can only like a post once.");
+                    req.flash("success-message", "You just unliked a post.");
+                    await post.likedBy.pull(req.user.id);
+                    await post.save();
                     return res.redirect("back");
                 }
 
             }
+            req.flash("success-message", "You just liked a Post.");
             await post.likedBy.push(req.user.id);
             await post.save();
             return res.redirect("back")
