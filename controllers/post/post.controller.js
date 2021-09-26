@@ -12,7 +12,6 @@ module.exports = {
         const { body } = req.body;
 
         let post = new Post({ body, user: req.user.username || req.user.name, userImage: req.user.userImage, userId: req.user.id });
-        console.log(req.user.userImage);
         await post.save();
         if (!post) {
             req.flash("error-message", "Could not save post");
@@ -46,6 +45,21 @@ module.exports = {
             req.flash('success-message', 'Post deleted successfully')
             return res.redirect("back");
         })
+
+    },
+
+    searchPost: async(req, res) => {
+        const { search } = req.body;
+        Post.find({ $text: { $search: search } }, (function(err, searchedposts) {
+            if (!err) {
+                if (searchedposts == []) {
+                    req.flash('success-message', 'No Post Found!')
+                    return res.redirect("/post/search");
+                }
+                return res.render('defaults/searchedposts', { searchedposts })
+            }
+
+        }))
 
     }
 };
