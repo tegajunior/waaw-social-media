@@ -57,13 +57,8 @@
     </nav>
 
     <div class="post__form" style="margin-top:100px;">
-        <div class="flashmessages" style="top: 200px; width:50vw;">
-            <%- include('../messages') -%>
-        </div>
-
-
         <div class="postcard">
-
+<h5 style="text-align:center;">Only <%-searchedposts.length -%> posts match your search.</h5>
             <% for(let post of searchedposts){ %>
                 <div class="post" style="background:#FFFFFF;">
                     <%if(isAuthenticated) { %>
@@ -85,7 +80,7 @@
                                 <div class="post__likes ">
                                     <span class=" " style="padding: 0 20px; font-size: 14px ">
               <%-post.likedBy.length%>
-            
+
                                     </span>
 
 
