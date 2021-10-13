@@ -1171,7 +1171,7 @@
     }
     
     .button-forgot-password {
-        padding: 2rem;
+        padding: 0.8rem 2rem;
         border-radius: 5px 5px 5px 5px;
         background-color: #FF735C;
         color: #fff;
